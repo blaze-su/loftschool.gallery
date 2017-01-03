@@ -1,0 +1,7 @@
+@mixin debug__fon($color: green) {
+  background: rgba($color, 0.3);
+}
+
+@mixin debug__outline($color: red) {
+  outline: 1px dashed $color;
+}
