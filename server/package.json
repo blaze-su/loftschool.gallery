@@ -18,9 +18,11 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.7.7",
+    "password-hash": "^1.2.2",
     "validator": "^6.2.1"
   }
 }
