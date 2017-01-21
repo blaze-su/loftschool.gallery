@@ -1,0 +1,122 @@
+.addAlbum {
+    display: flex;
+    justify-content: flex-end;
+}
+.addAlbum__button {
+    padding: .625rem;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    transition: .3s linear;
+
+    &:hover {
+        border-radius: 20px;
+        width: 7rem;
+        cursor: pointer;
+        background: #28bbf0;
+        color: #FFF;
+    }
+}
+.addAlbum__icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    background: url(../../assets/images/add.svg) no-repeat;
+    background-size: cover;
+    float: left;
+}
+
+.addAlbum__text {
+    font-size: 0.85rem;
+    position: absolute;
+    left: 2.5rem;
+    color: #FFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.addAlbum__popup {
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 18.75rem;
+    overflow: hidden;
+
+    &_active {
+        @extend .addAlbum__popup;
+        visibility: visible;
+    }
+}
+
+.popup__overlay {
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: #000;
+    opacity: .9;
+    width: 100vw;
+    height: 100vh;
+    transition: .3s linear;
+}
+
+.popup__container {
+    position: absolute;
+    top: -150%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 43.75rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .3s linear;
+
+    &_active {
+        @extend .popup__container;
+        top: 0;
+    }
+}
+
+.popup__header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background: #f1f1f1;
+    width: 100%;
+
+    & h2 {
+        line-height: 4rem;
+        margin: 0; 
+    }
+
+    .popupCloseIcon {
+        margin-left: auto;
+        margin-right: .5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url(../../assets/images/close.svg);
+        opacity: .6;
+        transition: .3s linear;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .9;
+        }
+    }
+}
+
+.popup__buttons {
+    height: 4rem;
+    width: 100%;   
+    background: #f1f1f1;
+}

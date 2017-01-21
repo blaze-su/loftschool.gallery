@@ -1,0 +1,99 @@
+.editButton {
+    box-sizing: border-box;
+    width: 3.1rem;
+    height: 3.1rem;
+    padding: 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.editIcon {
+    background: url(../../assets/images/edit.svg) no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+}
+
+.editPopup {
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 18.75rem;
+    overflow: hidden;
+
+    &_active {
+        @extend .editPopup;
+        visibility: visible;
+    }
+}
+
+.editPopup__overlay {
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: #000;
+    opacity: .9;
+    width: 100vw;
+    height: 100vh;
+    transition: .3s linear;
+}
+
+.editPopup__container {
+    position: absolute;
+    top: -150%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 43.75rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .3s linear;
+
+    &_active {
+        @extend .editPopup__container;
+        top: 0;
+    }
+}
+
+.editPopup__header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background: #f1f1f1;
+    width: 100%;
+
+    & h2 {
+        line-height: 4rem;
+        margin: 0; 
+    }
+
+    .popupCloseIcon {
+        margin-left: auto;
+        margin-right: .5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url(../../assets/images/close.svg);
+        opacity: .6;
+        transition: .3s linear;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .9;
+        }
+    }
+}
+
+.editPopup__buttons {
+    height: 4rem;
+    width: 100%;   
+    background: #f1f1f1;
+}
