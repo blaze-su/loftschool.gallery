@@ -1,0 +1,225 @@
+@import '../../assets/scss/fonts.scss';
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.header {
+	background: url('./images/bg-profile.jpg') center 50% no-repeat;
+	background-size: cover;
+	min-height: 300px;
+	position: relative;
+}
+
+.inner {
+	padding: 20px 40px 0 87px;
+	position: relative;
+
+	&:after {
+		display: block;
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0.6;
+		background: linear-gradient(to right, #000, #fff);
+	}
+}
+
+.headerTop {
+	padding-bottom: 59px;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	justify-content: space-between;
+	position: relative;
+	flex-direction: row;
+	z-index: 1;
+}
+
+.profile {
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-direction: row;
+	padding-top: 37px;
+	align-items: center;
+}
+
+.profilePhoto {
+	background: url('./images/no_photo.jpg') no-repeat 50% 50%;
+	background-size: cover;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	width: 124px;
+    height: 124px;
+	overflow: hidden;
+	position: relative;
+}
+
+.profileInfo {
+	margin-left: 48px;
+	max-width: 430px;
+	text-align: left;
+}
+
+.profileName{
+	color: #fff;
+	font-size: 21px;
+	@include Panton(bold);
+	margin: 0 0 8px;
+}
+
+.profileDescription {
+	color: #fff;
+	font-size: 16px;
+	@include ProximaNova(light);
+	margin: 0 0 26px;
+}
+
+.profileSocial {
+	margin: 0;
+}
+
+.socialList {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.socialItem {
+	display: inline-block;
+}
+
+.socialLink {
+	cursor: pointer;
+	display: block;
+}
+
+.socialIcon {
+	fill: rgba(255,255,255,.8);
+	transition: all .2s;
+	width: 20px;
+	height: 20px;
+	margin-right: 6px;
+
+	&:hover {
+		fill: rgba(255,255,255,1);
+	}
+}
+
+.buttons {
+	position: absolute;
+	right: 40px;
+	top: 20px;
+	z-index: 2;
+}
+
+.buttonsWrapper {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-webkit-box-align: end;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+}
+
+.buttonEdit, .buttonLogout {
+	background: #fff;
+	border-radius: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	display: inline-block;
+	font-size: 14px;
+	@include Panton(bold);
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+	transition: all .3s;
+	padding: 10px;
+	width: 40px;
+	height: 40px;
+	margin-bottom: 10px;
+
+	&:hover {
+		background-color: #28bbf0;
+		color: #fff;
+
+		.circleIcon {
+			fill: #fff;
+		}
+	}
+}
+
+.buttonLogout:hover {
+	width: 94px;
+
+	.buttonText {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.buttonEdit:hover {
+	width: 150px;
+
+	.buttonText {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.buttonText {
+	color: #fff;
+	display: inline;
+	line-height: 20px;
+	opacity: 0;
+	padding: 0 10px 0 10px;
+	position: absolute;
+	transition: all .3s;
+	visibility: hidden;
+	width: 100%;
+}
+
+.circleIcon {
+	fill: #a0a09f;
+	height: 20px;
+	width: 20px;
+}
+
+.search {
+	background: rgba(241,241,241,0.9);
+	z-index: 1;
+	padding: 10px 0;
+}
+
+.searchInner {
+	margin-right: 60px;
+	margin-left: 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.searchForm {
+	width: 380px;
+	position: relative;
+}
+
+.searchField {
+	background-color: #fff;
+	border: 0;
+	border-radius: 24px;
+	color: rgba(50,50,50,.6);
+	font-size: 16px;
+	padding: 11px 12px 11px 45px;
+	width: 100%;
+}

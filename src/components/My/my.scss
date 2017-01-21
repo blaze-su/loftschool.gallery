@@ -1,0 +1,192 @@
+@import '../../assets/scss/fonts.scss';
+
+.my {
+	position: relative;
+	padding: 49px 0 40px;
+	background: #f6f6f6;
+}
+
+.buttonAdd {
+	background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    font-size: 14px;
+    font-family: "Panton";
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    transition: all .3s;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    right: 40px;
+    top: 58px;
+
+    &:hover {
+    	width: 112px;
+    	background-color: #28bbf0;
+    	color: #fff;
+
+    	.addText {
+    		opacity: 1;
+    		visibility: visible;
+    	}
+
+    	.addIcon {
+    		fill: #fff;
+    	}
+    }
+}
+
+.addIcon {
+	fill: #a0a09f;
+    height: 20px;
+    width: 20px;
+}
+
+.addText {
+	color: #fff;
+    display: inline;
+    line-height: 20px;
+    opacity: 0;
+    padding-left: 10px;
+    position: absolute;
+    transition: all .3s;
+    visibility: hidden;
+    width: 100%;
+}
+
+.myTitle {
+	margin: 0;
+    font-size: 42px;
+    color: #323232;
+    font-family: "Panton";
+}
+
+.container {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+.myList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+
+.myItem {
+	flex: 1 1 280px;
+	background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px 10px 0;
+    overflow: hidden;
+
+    &:nth-child(4n) {
+    	margin-right: 0;
+    }
+}
+
+.myImage {
+	background: url('./images/photoone.jpg') no-repeat 50% 50%;
+    background-size: cover;
+    display: block;
+    position: relative;
+    height: 280px;
+
+    &:hover .myOverlay {
+    	opacity: 1;
+    	transform: scaleY(1);
+    	visibility: visible;
+    }
+
+    &:hover .myDescription,
+    &:hover .myWrapper, {
+    	transform: translateY(-150px);
+    }
+}
+
+.myOverlay {
+    align-items: center;
+    background-color: rgba(0,0,0,.4);
+    bottom: 0;
+    content: '';
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition: all .25s;
+    visibility: hidden;
+}
+
+.myText {
+	color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin-top: auto;
+    padding: 38px 22px;
+    @include ProximaNova(light);
+}
+
+.myDescription {
+	line-height: 1.5;
+    margin-bottom: 30px;
+    position: relative;
+    top: 150px;
+    transition: transform .25s .1s;
+}
+
+.myWrapper {
+    position: relative;
+    top: 150px;
+    transition: transform .25s .15s;
+    @include ProximaNova(semibold);
+}
+
+.myFooter {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 13px 21px;
+}
+
+.myLink {
+	text-decoration: none;
+
+	&:hover .linkText {
+		opacity: 0.6;
+	}
+}
+
+.myEdit:hover .editIcon {
+	fill: rgba(50,50,50,.6);
+}
+
+.editIcon {
+	width: 20px;
+	height: 20px;
+	fill: rgba(50,50,50,.2);
+    transition: all .4s;
+}
+
+.linkText {
+	font-size: 16px;
+	color: #323232;
+    margin: 0 0 0 8px;
+    transition: opacity .25s;
+    @include ProximaNova(semibold);
+}

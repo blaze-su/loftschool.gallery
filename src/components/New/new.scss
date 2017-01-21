@@ -1,0 +1,254 @@
+@import '../../assets/scss/fonts.scss';
+
+.new {
+	padding: 60px 0;
+}
+
+.container {
+	width: 1180px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.mainTitle {
+	margin: 0;
+	font-size: 42px;
+	color: #323232;
+	@include Panton(bold);
+}
+
+.albumList {
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.albumItem {
+	flex: 1 1 380px;
+	margin: 10px 20px 10px 0;
+	box-shadow: 0 1px 4px rgba(0,0,0,.15);
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+
+.itemImage {
+	height: 250px;
+	position: relative;
+	display: block;
+	background: url('./images/albone.jpg');
+	background-size: cover;
+	
+	&:hover .itemIcon {
+		animation: fadeInScale .35s ease-in-out forwards;
+    	animation-delay: .1s;
+	}
+	&:hover .itemOverlay {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.itemOverlay {
+	background-color: rgba(0,0,0,.4);
+    bottom: 0;
+    content: '';
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    align-items: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    transition: all .4s;
+}
+
+.itemIcon {
+	fill: #fff;
+	width: 40px;
+	height: 40px;
+	transform: scale(0);
+}
+
+.albumInfo {
+	display: flex;
+	align-items: center;
+}
+
+.albumTitle {
+	font-size: 16px;
+	color: #323232;
+	margin: 0 0 18px;
+	@include ProximaNova(light);
+}
+
+.photoIcon {
+	width: 17px;
+	height: 4px;
+	fill: #fff
+}
+
+.commentsIcon {
+	width: 20px;
+	height: 17px;
+	fill: #d6d6d6;
+	transition: all .4s;
+}
+
+.likesIcon {
+	width: 20px;
+	height: 16px;
+	fill: #d6d6d6;
+	transition: all .4s;
+}
+
+.albumIcon {
+	width: 20px;
+	height: 18px;
+	fill: #d6d6d6;
+	transition: all .4s;
+}
+
+.quantityComments,
+.quantityLikes {
+	font-size: 18px;
+	color: #323232;
+	opacity: 0.8;
+	margin-left: 10px;
+	@include Panton(bold);
+}
+
+.albumAuthor {
+	padding: 20px;
+}
+
+.authorPhoto {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: block;
+	background: url('./images/avatar.png');
+	position: relative;
+
+	&:hover .photoOverlay {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.photoOverlay {
+    align-items: center;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    transition: all .4s;
+}
+
+.albumCaption {
+	margin-left: 10px;
+}
+
+.albumDescription {
+	display: flex;
+}
+
+.albumComments {
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+	text-decoration: none;
+
+	&:hover .commentsIcon {
+		fill: #20b6f3;
+	}
+}
+
+.albumLikes {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+
+	&:hover .likesIcon {
+	    fill: #ef4536;
+	}
+}
+
+.albumFooter {
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px 20px;
+}
+
+.albumLink {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+
+	&:hover .albumIcon {
+		fill: #20b6f3;
+	}
+}
+
+.albumMain {
+	margin: 0 0 0 8px;
+	color: #323232;
+	opacity: 0.8;
+	font-size: 16px;
+	@include ProximaNova(semibold);
+}
+
+.buttonMore {
+	color: #28bbf0;
+	font-size: 14px;
+	line-height: 14px;
+	border: 1px solid #28bbf0;
+	border-radius: 30px;
+	align-self: center;
+	padding: 12px 20px;
+	text-decoration: none;
+	transition: all .4s;
+	@include Panton(bold);
+
+	&:hover {
+		color: #fff;
+		background: #28bbf0;
+	}
+}
+
+@keyframes fadeInScale {
+
+	0% {
+		transform: scale(0);
+	}
+	40% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+		visibility: visible;
+	}
+
+}

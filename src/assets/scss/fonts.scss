@@ -1,0 +1,19 @@
+@mixin Panton($style: bold) {
+  @if($style == bold) {
+    font-family: "Panton";
+  }
+}
+
+@mixin ProximaNova($style: light) {
+  @if ($style == light) {
+    font-family: "ProximaNova-Light";
+  }
+
+  @if ($style == lightit) {
+    font-family: "ProximaNova-LightIt";
+  }
+
+  @if ($style == semibold) {
+    font-family: "ProximaNova-Semibold";
+  }
+}
