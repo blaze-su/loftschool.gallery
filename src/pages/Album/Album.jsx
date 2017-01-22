@@ -1,3 +1,4 @@
+
 import React from 'react';
 import s from './album.scss';
 import HeaderAlbum from '../../components/HeaderAlbum';
