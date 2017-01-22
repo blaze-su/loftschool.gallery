@@ -25,6 +25,24 @@ function Photos() {
                                 /> 
                             </div>
                         </a>
+                        <div className={s.photoDescription}>
+                            <a href='#' className={s.photoComments}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="comments"
+                                    iconClassName={s.commentsIcon}
+                                />
+                                <span className={s.quantityComments}>4</span>
+                            </a>
+                            <a href='#' className={s.photoLikes}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="like"
+                                    iconClassName={s.likesIcon}
+                                />
+                                <span className={s.quantityLikes}>2</span>
+                            </a>
+                        </div>
                         <div className={s.footer}>
                             <a href='#' className={s.edit}>
                                 <Icon
@@ -33,9 +51,85 @@ function Photos() {
                                     iconClassName={s.editIcon}
                                 />
                             </a>
-                            <a href='' className={s.albumLink}>
-                                <h3 className={s.linkText}>Прогулки на лодке</h3>
+                            <span className={s.photoTitle}>Прогулки на лодке</span>
+                        </div>
+                    </li>
+                    <li className={s.item}>
+                        <a href='#' className={s.image}>
+                            <div className={s.imageOverlay}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="loupe"
+                                    iconClassName={s.iconLoupe}
+                                /> 
+                            </div>
+                        </a>
+                        <div className={s.photoDescription}>
+                            <a href='#' className={s.photoComments}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="comments"
+                                    iconClassName={s.commentsIcon}
+                                />
+                                <span className={s.quantityComments}>4</span>
                             </a>
+                            <a href='#' className={s.photoLikes}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="like"
+                                    iconClassName={s.likesIcon}
+                                />
+                                <span className={s.quantityLikes}>2</span>
+                            </a>
+                        </div>
+                        <div className={s.footer}>
+                            <a href='#' className={s.edit}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="edit"
+                                    iconClassName={s.editIcon}
+                                />
+                            </a>
+                            <span className={s.photoTitle}>Прогулки на лодке</span>
+                        </div>
+                    </li>
+                    <li className={s.item}>
+                        <a href='#' className={s.image}>
+                            <div className={s.imageOverlay}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="loupe"
+                                    iconClassName={s.iconLoupe}
+                                /> 
+                            </div>
+                        </a>
+                        <div className={s.photoDescription}>
+                            <a href='#' className={s.photoComments}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="comments"
+                                    iconClassName={s.commentsIcon}
+                                />
+                                <span className={s.quantityComments}>4</span>
+                            </a>
+                            <a href='#' className={s.photoLikes}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="like"
+                                    iconClassName={s.likesIcon}
+                                />
+                                <span className={s.quantityLikes}>2</span>
+                            </a>
+                        </div>
+                        <div className={s.footer}>
+                            <a href='#' className={s.edit}>
+                                <Icon
+                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                                    symbolId="edit"
+                                    iconClassName={s.editIcon}
+                                />
+                            </a>
+                            <span className={s.photoTitle}>Прогулки на лодке</span>
                         </div>
                     </li>
                 </ul>

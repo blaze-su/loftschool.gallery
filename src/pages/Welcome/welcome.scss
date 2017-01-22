@@ -11,6 +11,8 @@
 .contentWrapper {
 	flex: 1;
 	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .copyright {
@@ -24,4 +26,166 @@
 .footer {
 	text-align: center;
 	padding: 20px 0;
+}
+
+.ReactFlipCard__Front,
+.ReactFlipCard__Back {
+	position: relative!important;
+}
+
+.frontSide,
+.backSide {
+	position: absolute;
+	left: -290px;
+	width: 580px;
+	outline: none;
+	top: 50%;
+	margin-top: -180px;
+}
+
+.formLogin {
+	background-color: #fff;
+    border-radius: 20px;
+    margin: 30px auto;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel {
+	border: 0;
+    border-bottom: 1px solid #e1e1e1;
+    display: block;
+    padding: 10px;
+}
+
+
+.mailIcon {
+	fill: #a0a09f;
+    float: left;
+    height: 13px;
+    margin: 4px 6px 0;
+    opacity: .6;
+    width: 15px;
+}
+
+.nameIcon {
+	fill: #a0a09f;
+    float: left;
+    height: 18px;
+    margin: 1px 5px 0 5px;
+    opacity: .6;
+    width: 17px;
+}
+
+.passwordIcon {
+	fill: #a0a09f;
+    float: left;
+    height: 18px;
+    margin: 1px 5px 0 7px;
+    opacity: .6;
+    width: 15px;
+}
+
+.formInput {
+	border: 0;
+    color: rgba(#323232,.6);
+    font-size: 16px;
+    vertical-align: bottom;
+    width: 80%;
+    outline: none;
+    @include ProximaNova(light);
+}
+
+.formInput:focus~svg {
+    fill: #28bbf0;
+    transition: all .35s ease .1s;
+}
+
+.error {
+	background-color: rgba(255,224,224,.9);
+    display: none;
+    margin: 15px auto 20px;
+    padding: 10px;
+    width: 85%;
+}
+
+.errorMessage {
+	color: rgba(50,50,50,.6);
+	@include ProximaNova(semibold);
+}
+
+.submitButton {
+	width: 240px;
+	background: #28bbf0;
+    border: 0;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    outline: none;
+    overflow: hidden;
+    padding: 13px 19px;
+    text-align: center;
+    transition: all .2s;
+    margin: 10px 20px 10px;
+
+    @include Panton(bold);
+
+    &:hover {
+    	background: #24b0e3;
+    }
+}
+
+.registration,
+.loginButton {
+	background: transparent;
+	border: none;
+	color: #28bbf0;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
+	opacity: 0.8;
+	@include ProximaNova(semibold);
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.description {
+	color: #323232;
+	font-size: 14px;
+	@include ProximaNova(light);
+}
+
+.formFooter {
+	text-align: center;
+	padding-bottom: 17px;
+}
+
+.registrationTitle {
+	color: #fff;
+	font-size: 42px;
+	text-align: center;
+	margin: 10px 0;
+	@include Panton(bold);
+}
+
+.registrationDescription {
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 5px;
+	line-height: 1.5;
+	@include ProximaNova(light);
+}
+
+.confidentiality {
+	font-size: 14px;
+	color: #323232;
+	margin: 10px 0 0;
+    padding-left: 22px;
+	@include ProximaNova(light);
 }
