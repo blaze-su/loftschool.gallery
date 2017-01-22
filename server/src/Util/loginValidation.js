@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash';
 function userValidation(data) {
     let errors = {};
 
-    if(Validator.isEmpty(data.username)) errors.username = 'Введите имя пользователя';
+    if(Validator.isEmpty(data.email)) errors.email = 'Введите имя пользователя';
     if(Validator.isEmpty(data.password)) errors.password = 'Введите пароль';
 
     return ({
