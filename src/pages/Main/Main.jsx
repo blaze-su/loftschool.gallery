@@ -9,8 +9,10 @@ function Main() {
     return (
         <div className={s.wrapper}>
 			<Header />
-			<New />
-			<My />
+			<div className={s.contentWrapper}>
+				<New />
+				<My />
+			</div>
 			<Footer />
 		</div>
     );

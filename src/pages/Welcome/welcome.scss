@@ -1,5 +1,27 @@
-.title {
-    font-size: 20px;
-    color: red;
-    text-align: center;
+@import '../../assets/scss/fonts.scss';
+
+.wrapper {
+	background: url(./images/bg.jpg) center 0 no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+.contentWrapper {
+	flex: 1;
+	display: flex;
+}
+
+.copyright {
+	font-size: 16px;
+	color: rgba(#fff,0.8);
+	margin: 0;
+
+	@include ProximaNova(light);
+}
+
+.footer {
+	text-align: center;
+	padding: 20px 0;
 }

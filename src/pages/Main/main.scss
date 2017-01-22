@@ -1,5 +1,9 @@
-.title {
-    font-size: 20px;
-    color: blue;
-    text-align: center;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+.contentWrapper {
+	flex: 1;
 }
