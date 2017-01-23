@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
+require ('./assets/scss/fonts-load.scss');
 
 import Welcome from './pages/Welcome';
 import Main from './pages/Main';

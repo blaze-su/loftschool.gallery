@@ -1,4 +1,7 @@
+@import '../../assets/scss/fonts.scss';
+
 .cancel_button, .save_button {
+    @include ProximaNova(semibold);
     width: 6.6rem;
     height: 2.5rem;
     border-radius: 20px;

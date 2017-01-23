@@ -54,9 +54,10 @@
     bottom: 0;
     left: 0;
     width: 100vw;
-    height: 18.75rem;
+    height: 100vh;
     display: flex;
     overflow: hidden;
+    transition: .3s linear;
 
     &_active {
         @extend .slideBlock;
@@ -83,28 +84,39 @@
     opacity: .9;
 }
 
+.slideBlock__wrapper {
+    position: relative;
+    top: 0;
+    height: 19.2rem;
+    width: 100vw;
+}
+
 .slideBlock_top {
     width: 100%;
-    height: 80%;
+    height: 15rem;;
     top: -80%;
     background: blue;
+    visibility: hidden;
 
     &_active {
         @extend .slideBlock_top;
         top:0;
+        visibility: visible;
     }
 }
 
 
 .slideBlock_bottom {
     width: 100%;
-    height: 20%;
+    height: 3.75rem;
     bottom: -20%;
     background: #FFF;
+    visibility: hidden;
 
     &_active {
         @extend .slideBlock_bottom;
         bottom: 0;
+        visibility: visible;
     }
 }
 

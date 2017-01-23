@@ -44,10 +44,11 @@ class ImageUpload extends React.Component {
         <div className={s.imgPreview}>
             {$imagePreview}
         </div>
-        <form onSubmit={(e)=>this._handleSubmit(e)}>
           <input className={s.fileInput} type="file" onChange={(e)=>this._handleImageChange(e)} />
-          <button className={s.submitButton} type="submit" onClick={(e)=>this._handleSubmit(e)}>{this.props.text}</button>
-        </form>
+          <button className={s.submitButton} onClick={(e)=>this._handleSubmit(e)}>{this.props.text}</button>
+          <span className={s.fileSizeWarning}>(файл должен быть размером
+            не более <b>1024 КБ</b>)
+          </span>
       </div>
     )
   }

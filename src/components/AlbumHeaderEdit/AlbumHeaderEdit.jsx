@@ -37,20 +37,22 @@ class HeaderEdit extends React.Component {
                     s.slideBlock
                 }>
                     <div className={s.slideBlock__overlay} onClick={this.onClickHandler}></div>
-                    <div className={this.state.active ?
-                        s.slideBlock_top_active
-                        :
-                        s.slideBlock_top
-                    }>
-                    </div>
-                    <div className={this.state.active ?
-                        s.slideBlock_bottom_active
-                        :
-                        s.slideBlock_bottom
-                    }>
-                        <div className={s.slideBlock_bottom__buttons}>
-                            <Button className="cancel" onClick={this.onClickHandler}/>
-                            <Button className="save"/>
+                    <div className={s.slideBlock__wrapper}>
+                        <div className={this.state.active ?
+                            s.slideBlock_top_active
+                            :
+                            s.slideBlock_top
+                            }>
+                        </div>
+                        <div className={this.state.active ?
+                            s.slideBlock_bottom_active
+                            :
+                            s.slideBlock_bottom
+                            }>
+                            <div className={s.slideBlock_bottom__buttons}>
+                                <Button className="cancel" onClick={this.onClickHandler}/>
+                                <Button className="save"/>
+                            </div>
                         </div>
                     </div>
                 </div>
