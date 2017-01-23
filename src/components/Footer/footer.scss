@@ -1,0 +1,68 @@
+@import '../../assets/scss/fonts.scss';
+
+
+.footer {
+    background: url('./images/bg-profile.jpg') center bottom no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 15px 0;
+    position: relative;
+
+    &:before {
+        background: rgba(0,0,0,.8);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
+    }
+}
+
+.container {
+    padding: 0 60px;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+}
+
+.topIcon {
+    width: 26px;
+    height: 20px;
+    fill: rgba(#fff, 0.8);
+}
+
+.descriptionText,
+.copyrightText {
+    margin: 0;
+}
+
+.description {
+    width: 480px;
+    font-size: 16px;
+    color: #fff;
+    @include ProximaNova(light);
+}
+
+.copyright {
+    width: 480px;
+    text-align: right;
+    font-size: 16px;
+    color: rgba(#fff, 0.4);
+    @include ProximaNova(light);
+}
+
+.toTop {
+    position: relative;
+    top: 10px;
+}
+
+.topLink {
+    text-decoration: none;
+
+    &:hover .topIcon {
+        fill: #fff;
+    }
+}
