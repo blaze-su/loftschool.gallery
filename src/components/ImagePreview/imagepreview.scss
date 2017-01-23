@@ -1,0 +1,57 @@
+.previewComponent {
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+	margin-left: 15px;
+}
+
+.fileInput {
+    height: 2.5rem;
+    width: 9.6rem;
+	cursor: pointer;
+    opacity: 0;
+    position: absolute;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.imgPreview {
+	text-align: center;
+	margin: 5px 15px;
+	height: 3.1rem;
+	width: 3.1rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+	    height: 100%;
+    }
+}
+
+
+.previewText {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.submitButton {
+    width: 9.6rem;
+    height: 2.5rem;
+	padding: 12px;
+	background: #fff;
+	border-radius: 30px;
+	font-weight: 700;
+	font-size: 10pt;
+	cursor: pointer;
+    border: 1px solid #28bbf0;
+    color: #28bbf0;
+}
+
+.submitButton:hover {
+	background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+}

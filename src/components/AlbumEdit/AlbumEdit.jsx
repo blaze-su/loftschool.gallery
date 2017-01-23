@@ -1,8 +1,10 @@
 import React from 'react';
+import ImagePreview from 'react-image-preview';
 
 import s from './albumedit.scss';
 
 import Button from './../PopupButton/PopupButton';
+import ImageUpload from './../ImagePreview/ImagePreview';
 
 const Animation = require('./albumedit_anim');
 
@@ -42,9 +44,12 @@ class AlbumEdit extends React.Component {
                         s.editPopup__container
                     }>
                         <header className={s.editPopup__header}>
-                            <h2>Редактировать профиль</h2>
+                            <h2>Редактировать альбом</h2>
                             <div className={s.popupCloseIcon} onClick={this.onClickHandler}></div>
                         </header>
+                        <main className={s.editPopup__main}>
+                            <ImageUpload text="Загрузить обложку"/>
+                        </main>
                         <div className={s.editPopup__buttons}>
                             <Button className="cancel" onClick={this.onClickHandler}></Button>
                             <Button className="save"></Button>

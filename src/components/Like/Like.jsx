@@ -18,7 +18,14 @@ class Like extends React.Component {
     }
 
     onClickHandler(e) {
+        if (this.state.liked) {
+            this.props.onLike('remove');
+        } else {
+            this.props.onLike('add');
+        }
         this.setState({liked: !this.state.liked});
+        
+        
     } 
 
 
@@ -30,7 +37,7 @@ class Like extends React.Component {
                     :
                     s.like
                 }></div>
-                <span>0</span>
+                <span>{this.props.likes}</span>
             </button>
         );
     };

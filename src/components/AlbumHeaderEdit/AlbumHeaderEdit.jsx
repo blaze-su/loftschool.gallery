@@ -28,7 +28,7 @@ class HeaderEdit extends React.Component {
         return (
             <div className={s.container}>
                 <div className={s.editButton} onClick={this.onClickHandler}>
-                    <div className={s.editIcon}></div>
+                    <div className={s.editIcon + ' ' + 'icon-edit'}></div>
                     <span className={s.editText}>Редактировать</span>
                 </div>
                 <div className={this.state.active ?
@@ -41,7 +41,8 @@ class HeaderEdit extends React.Component {
                         s.slideBlock_top_active
                         :
                         s.slideBlock_top
-                    }></div>
+                    }>
+                    </div>
                     <div className={this.state.active ?
                         s.slideBlock_bottom_active
                         :

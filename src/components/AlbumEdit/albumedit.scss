@@ -92,7 +92,13 @@
     }
 }
 
+.editPopup__main {
+    background: #FFF;
+}
+
 .editPopup__buttons {
+    display: flex;
+    align-items: center;
     height: 4rem;
     width: 100%;   
     background: #f1f1f1;
