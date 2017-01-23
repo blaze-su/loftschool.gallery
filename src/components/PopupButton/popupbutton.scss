@@ -1,0 +1,28 @@
+@import '../../assets/scss/fonts.scss';
+
+.cancel_button, .save_button {
+    @include ProximaNova(semibold);
+    width: 6.6rem;
+    height: 2.5rem;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    transition: .3s linear;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.cancel_button {
+    background: transparent;
+    color: #28bbf0;
+}
+.save_button {
+    background: #28bbf0;
+    color: #FFF;
+
+    &:hover {
+        background: #24b0e3;
+    }
+}

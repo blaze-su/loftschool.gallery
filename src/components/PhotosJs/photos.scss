@@ -1,0 +1,90 @@
+.photos {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100rem;
+    margin: 0 auto;
+}
+
+.fullscreen {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.fullscreen__overlay {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: .9;
+}
+
+.fullscreen__container {
+    max-width: 60vw;
+    z-index: 20;
+    background: #ffffff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container__image {
+    width: 100%;
+}
+
+
+.container__info {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 95%;
+}
+
+.info__mainInfo {
+    display: flex;
+    align-items: center;    
+    width: 100%;
+}
+
+.mainInfo__author {
+    font-weight: bold;
+}
+
+.mainInfo__likes {
+    margin-left: auto;
+}
+
+.description__title {
+    margin: 0;
+    padding: 0;
+}
+
+.buttons {
+    position: absolute;
+    height: 100%;
+    top: 0; 
+    background: #a0a09f;
+}
+
+.nextButton, .previousButton {
+    @extend .buttons;
+}
+
+.nextButton {   
+    right: -5%
+}
+
+.previousButton {
+    left: -5%
+}
