@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import passwordHash from 'password-hash';
 import jwt from 'jsonwebtoken';
-import multer from 'multer';
 
 import { setUpConnection } from '../Util/DataBaseUtils';
 import '../models/User/User';
@@ -14,10 +13,6 @@ const router = express.Router();
 const User = mongoose.model('User');
 
 setUpConnection();
-
-router.get('/', (req, res) => {
-    res.send('users are here');
-});
 
 router.post('/register', (req, res) => {
     let user = req.body;
@@ -40,10 +35,10 @@ router.post('/register', (req, res) => {
                 });
                 user.save()
                     .then(() => {
-                        res.status(200);
+                        res.status(200).send();
                     })
                     .catch(() => {
-                        res.status(500);
+                        res.status(500).send();
                     })
             } else {
                 res.status(400).json(errors);

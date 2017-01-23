@@ -1,17 +1,30 @@
 import React from 'react';
 import FlipCard from 'react-flipcard';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+
 import Icon from 'react-icon-svg-symbol';
 import s from './welcome.scss';
+import { login } from '../../actions/authActions';
+import { userSignupRequest } from '../../actions/signupActions';
 
 
 class Welcome extends React.Component{
 
   constructor(props) {
-  super(props);
+    super(props);
+
     this.handleOnFlip = this.handleOnFlip.bind(this);
     this.state = {
-    isFlipped: false
+      isFlipped: false,
+      username: '',
+      email: '',
+      password: ''
     }
+
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onLoginSubmit = this.onLoginSubmit.bind(this);
+    this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
   }
 
   showBack = () => {
@@ -45,6 +58,41 @@ class Welcome extends React.Component{
     back.style.outline='none';
   }
 
+  onInputChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onLoginSubmit(e) {
+    e.preventDefault();
+
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    }
+
+    this.props.login(data)
+      .then((res) => { browserHistory.push('/Main') })
+      .catch(() => { console.log('Ошибка') });
+  }
+
+  onRegisterSubmit(e) {
+    e.preventDefault();
+
+    const data = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    }
+
+    this.props.userSignupRequest(data)
+      .then((res) => { 
+          this.setState({
+            isFlipped: !this.state.isFlipped
+          });
+       })
+      .catch(() => { console.log('Ошибка') });
+  }
+
   render() {
     return (
         <div className={s.wrapper}>
@@ -58,9 +106,9 @@ class Welcome extends React.Component{
                   <div className={s.frontSide}>
                     <h1 className={s.registrationTitle}>Добро пожаловать</h1>
                     <p className={s.registrationDescription}>Перед вами сервис, который поможет вам организовать свои фотографии в альбомы и поделиться ими со всем миром!</p>
-                    <form className={s.formLogin}>
+                    <form className={s.formLogin} onSubmit={this.onLoginSubmit}>
                       <label className={s.formLabel}>
-                        <input className={s.formInput} placeholder='Электронная почта'/>
+                        <input className={s.formInput} placeholder='Электронная почта' name='email' onChange={this.onInputChange}/>
                         <Icon
                           fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                           symbolId="envelope"
@@ -68,7 +116,7 @@ class Welcome extends React.Component{
                         />
                       </label>
                       <label className={s.formLabel}>
-                        <input className={s.formInput} placeholder='Пароль'/>
+                        <input className={s.formInput} placeholder='Пароль' name='password' onChange={this.onInputChange}/>
                         <Icon
                           fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                           symbolId="password"
@@ -87,9 +135,9 @@ class Welcome extends React.Component{
                   </div>
                   <div className={s.backSide}>
                     <h1 className={s.registrationTitle}>Регистрация</h1>
-                    <form className={s.formLogin}>
+                    <form className={s.formLogin} onSubmit={this.onRegisterSubmit}>
                       <label className={s.formLabel}>
-                        <input className={s.formInput} placeholder='Имя'/>
+                        <input className={s.formInput} placeholder='Имя' name='username' onChange={this.onInputChange}/>
                         <Icon
                           fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                           symbolId="name"
@@ -97,7 +145,7 @@ class Welcome extends React.Component{
                         />
                       </label>
                       <label className={s.formLabel}>
-                        <input className={s.formInput} placeholder='Электронная почта'/>
+                        <input className={s.formInput} placeholder='Электронная почта' name='email' onChange={this.onInputChange}/>
                         <Icon
                           fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                           symbolId="envelope"
@@ -105,7 +153,7 @@ class Welcome extends React.Component{
                         />
                       </label>
                       <label className={s.formLabel}>
-                        <input className={s.formInput} placeholder='Пароль'/>
+                        <input className={s.formInput} placeholder='Пароль' name='password' onChange={this.onInputChange}/>
                         <Icon
                           fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                           symbolId="password"
@@ -134,4 +182,10 @@ class Welcome extends React.Component{
   }
 };
 
-export default Welcome;
+export default connect(
+  null,
+  {
+    login,
+    userSignupRequest
+  }
+)(Welcome);
