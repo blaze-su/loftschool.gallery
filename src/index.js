@@ -30,10 +30,6 @@ if (localStorage.jwtToken) {
 }
 
 ReactDOM.render(
-    //Защита маршрутов
-    //Раскомментировать, чтобы работало
-    
-    /*
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" components={App}>
@@ -42,17 +38,6 @@ ReactDOM.render(
                 <Route path="main" components={requireAuth(Main)}/>
                 <Route path="album" components={requireAuth(Album)}/>
                 <Route path="search" components={requireAuth(Search)}/>
-            </Route>
-        </Router>
-    </Provider>,*/
-    <Provider store={store}>
-        <Router history={browserHistory}>
-            <Route path="/" components={App}>
-                <IndexRoute components={Welcome}/>
-                <Route path="auth" components={Welcome} />
-                <Route path="main" components={Main}/>
-                <Route path="album" components={Album}/>
-                <Route path="search" components={Search}/>
             </Route>
         </Router>
     </Provider>,

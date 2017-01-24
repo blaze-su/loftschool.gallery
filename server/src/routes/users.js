@@ -12,7 +12,7 @@ import loginValidation from '../Util/loginValidation';
 const router = express.Router();
 const User = mongoose.model('User');
 
-setUpConnection();
+//setUpConnection();
 
 router.post('/register', (req, res) => {
     let user = req.body;
