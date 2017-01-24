@@ -1,18 +1,13 @@
 import React from 'react';
 import Icon from 'react-icon-svg-symbol';
+import AddAlbum from './../../components/AddAlbum/AddAlbum';
+import AlbumEdit from './../../components/AlbumEdit/AlbumEdit';
 import s from './my.scss';
 
 function My() {
     return (
         <div className={s.my}>
-            <a href='#' className={s.buttonAdd}>
-                <Icon
-                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                    symbolId="add"
-                    iconClassName={s.addIcon}
-                />
-                <span className={s.addText}>Добавить</span>
-            </a>
+            <AddAlbum/>
             <div className={s.container}>
                 <h1 className={s.myTitle}>Мои альбомы</h1>
                 <ul className={s.myList}>
@@ -29,13 +24,7 @@ function My() {
                             </div>
                         </a>
                         <div className={s.myFooter}>
-                            <a href='#' className={s.myEdit}>
-                                <Icon
-                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                                    symbolId="edit"
-                                    iconClassName={s.editIcon}
-                                />
-                            </a>
+                            <AlbumEdit/>
                             <a href='' className={s.myLink}>
                                 <h3 className={s.linkText}>Прогулки на лодке</h3>
                             </a>
@@ -54,13 +43,7 @@ function My() {
                             </div>
                         </a>
                         <div className={s.myFooter}>
-                            <a href='#' className={s.myEdit}>
-                                <Icon
-                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                                    symbolId="edit"
-                                    iconClassName={s.editIcon}
-                                />
-                            </a>
+                            <AlbumEdit/>
                             <a href='' className={s.myLink}>
                                 <h3 className={s.linkText}>Прогулки на лодке</h3>
                             </a>
@@ -79,13 +62,7 @@ function My() {
                             </div>
                         </a>
                         <div className={s.myFooter}>
-                            <a href='#' className={s.myEdit}>
-                                <Icon
-                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                                    symbolId="edit"
-                                    iconClassName={s.editIcon}
-                                />
-                            </a>
+                            <AlbumEdit/>
                             <a href='' className={s.myLink}>
                                 <h3 className={s.linkText}>Прогулки на лодке</h3>
                             </a>
@@ -104,13 +81,7 @@ function My() {
                             </div>
                         </a>
                         <div className={s.myFooter}>
-                            <a href='#' className={s.myEdit}>
-                                <Icon
-                                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                                    symbolId="edit"
-                                    iconClassName={s.editIcon}
-                                />
-                            </a>
+                            <AlbumEdit/>
                             <a href='' className={s.myLink}>
                                 <h3 className={s.linkText}>Прогулки на лодке</h3>
                             </a>

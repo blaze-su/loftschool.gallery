@@ -1,5 +1,6 @@
 import React from 'react';
 import ImagePreview from 'react-image-preview';
+import Icon from 'react-icon-svg-symbol';
 
 import s from './albumedit.scss';
 
@@ -31,7 +32,11 @@ class AlbumEdit extends React.Component {
         return (
             <div className={s.AlbumEdit}>
                 <div className={s.editButton} onClick={this.onClickHandler}>
-                    <div className={s.editIcon}></div>
+                    <Icon
+                        fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                        symbolId="edit"
+                        iconClassName={s.editIcon}
+                    />
                 </div>
                 <div className={this.state.edited ?
                     s.editPopup_active

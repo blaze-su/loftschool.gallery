@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from 'react-icon-svg-symbol';
+import AlbumHeaderEdit from '../../components/AlbumHeaderEdit/AlbumHeaderEdit';
 import s from './headeralbum.scss';
 
 function HeaderAlbum() {
@@ -17,9 +18,15 @@ function HeaderAlbum() {
             		<div className={s.albumDescription}>Фотографии природы леса, енотов и оленей. Как прекрасно сойти на дальней станции и пройтись по полю босиком. И чтобы никто не беспокоил бродить влюбленным в тишину. Запах мёда, лесных оленей и енотов будоражит нутро.
             		</div>
             	</div>
-            	<div className={s.buttons}>
-
-            	</div>
+                <AlbumHeaderEdit/>
+                <a className={s.homeButton}>
+                    <Icon
+                        fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                        symbolId="home"
+                        iconClassName={s.iconHome}
+                     /> 
+                    <span className={s.buttonText}>На главную</span>
+                </a>
             </div>
             <div className={s.albumCaption}>
             	<ul className={s.albumList}>
