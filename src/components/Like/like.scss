@@ -1,0 +1,44 @@
+.likeButton {
+    width: 5.3rem;
+    height: 2.5rem;
+    background: #ee4634;
+    border-radius: 1.25rem;
+    border:none;
+    box-shadow: none;
+    outline: none;
+    color: #FFF;
+    position: relative;
+    font-size: 1.25rem;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        left: 20%;             
+    }
+
+    &:hover {
+        background: #d94130;
+        cursor: pointer;
+        transition: background .2s linear;
+    }
+}
+
+.like {
+    height: 1.35rem;
+    width: 1.55rem;
+    margin-left: 1rem;
+    float: left;
+    background: url(../../assets/images/no_like.svg) no-repeat;
+    background-size: cover;
+    opacity: 1;
+    transition: .2s linear;
+
+    &_active {
+        @extend .like;
+        background: url(../../assets/images/like.svg) no-repeat;
+        background-size: cover;
+    }
+}

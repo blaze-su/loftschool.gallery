@@ -1,0 +1,160 @@
+@import '../../assets/scss/fonts.scss';
+
+.editButton {
+    box-sizing: border-box;
+    width: 3.1rem;
+    height: 3.1rem;
+    padding: 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.editIcon {
+    background: url(../../assets/images/edit.svg) no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+}
+
+.editPopup {
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+
+    &_active {
+        @extend .editPopup;
+        visibility: visible;
+    }
+}
+
+.editPopup__overlay {
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: #000;
+    opacity: .9;
+    width: 100vw;
+    height: 100vh;
+    transition: .3s linear;
+}
+
+.editPopup__container {
+    position: absolute;
+    top: -150%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 43.75rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .3s linear;
+
+    &_active {
+        @extend .editPopup__container;
+        top: 0;
+    }
+}
+
+.editPopup__header, .editPopup__main, .editPopup__buttons {
+    padding: .8rem;
+    box-sizing: border-box;
+}
+
+.editPopup__header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background: #f1f1f1;
+    width: 100%;
+
+    & h2 {
+        line-height: 4rem;
+        margin: 0; 
+    }
+
+    .popupCloseIcon {
+        margin-left: auto;
+        margin-right: .5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url(../../assets/images/close.svg);
+        opacity: .6;
+        transition: .3s linear;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .9;
+        }
+    }
+}
+
+.header__title {
+    @include Panton(bold);
+}
+
+.editPopup__main {
+    background: #FFF;
+}
+
+.main__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form__label {
+    width: 18%;
+    @include ProximaNova(semibold);
+}
+
+.form__nameInput, .form__descriptionInput, .form__label {
+    margin-bottom: 1.25rem;
+}
+
+.form__nameInput, .form__descriptionInput {
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 80%;
+    border-radius: 30px;
+    border: 2px solid #d8d6d6;
+    outline: none;
+    padding-left: 1.3rem;
+    @include ProximaNova(light);
+}
+
+.form__descriptionInput {
+    height: 7.5rem;
+    border-radius: 20px;
+}
+
+.editPopup__image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+   
+    margin: 0 auto;
+}
+
+.editPopup__buttons {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 100%;   
+    background: #f1f1f1;
+}
+
+.deleteButton {
+    margin-left: auto;
+}
