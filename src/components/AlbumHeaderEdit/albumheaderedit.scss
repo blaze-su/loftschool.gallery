@@ -1,3 +1,5 @@
+@import '../../assets/scss/fonts.scss';
+
 .container {
     display: flex;
     justify-content: flex-end;
@@ -15,7 +17,9 @@
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.75);
     transition: .3s linear;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    top: 70px;
+    right: 40px;
 
     &:hover {
         cursor: pointer;
@@ -23,27 +27,25 @@
         width: 9.25rem;
         border-radius: 20px;   
     }
+
+    &:hover .editIcon {
+        fill: #fff;
+    }
 }
 
 .editIcon {
-    float: left;
-    fill: #FFF;
-    width: 1.4rem;
-    height: 1.4rem;
-    //background-image:url('../../assets/images/edit.svg');
-    ////background-position:0 -180px;
-    ////background-repeat:no-repeat;
-    background-size: cover;
-    margin-right: .3rem;
-    margin-bottom: 1rem;
+    fill: #a0a09f;
+    height: 20px;
+    width: 20px;
 }
 
 .editText {
     font-size: 0.85rem;
     position: absolute;
     left: 2.5rem;
+    top: 12px;
     color: #FFF;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    @include Panton(bold);
 }
 
 .slideBlock {
@@ -53,7 +55,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     overflow: hidden;
@@ -73,7 +75,7 @@
 }
 
 .slideBlock_top, .slideBlock_bottom {
-    max-width: 81.25rem;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -89,14 +91,28 @@
     top: 0;
     height: 19.2rem;
     width: 100vw;
+    overflow: hidden;
 }
 
 .slideBlock_top {
     width: 100%;
     height: 15rem;;
     top: -80%;
-    background: blue;
+    background: url('./images/bg_header_album.jpg');
     visibility: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        content: '';
+        background: rgba(#000,0.8);
+    }
 
     &_active {
         @extend .slideBlock_top;
@@ -138,3 +154,66 @@
     }
 }
 
+.user {
+    z-index: 2;
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 20px;
+    left: 85px;
+}
+
+.userName {
+    font-size: 16px;
+    color: #fff;
+    align-items: center;
+    margin-left: 15px;
+    @include Panton(bold);
+}
+
+.userPhoto {
+    background: url('./images/user.jpg') no-repeat 50% 50%;
+    background-size: cover;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.albumInfo {
+    width: 780px;
+    z-index: 2;
+    padding: 60px 0 40px;
+}
+
+.titleInput {
+    background-color: #fff;
+    border-radius: 20px;
+    color: rgba(50,50,50,.8);
+    font-size: 16px;
+    line-height: 1.313;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+    @include ProximaNova(light);
+}
+
+.descriptionAlbum {
+    background-color: #fff;
+    border-radius: 20px;
+    color: rgba(50,50,50,.8);
+    width: 100%;
+    height: 90px;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    @include ProximaNova(light);
+}

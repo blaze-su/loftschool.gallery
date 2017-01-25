@@ -1,0 +1,55 @@
+@import '../../assets/scss/fonts.scss';
+
+.addWrapper {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    z-index: 3;
+    text-align: center;
+}
+
+.iconWrapper {
+    margin-bottom: 10px;
+}
+
+.addIcon {
+    height: 32px;
+    width: 40px;
+    fill: #d6d5d5;
+    transition: all .3s linear;
+}
+
+.iconText {
+    color: #d6d5d5;
+    font-size: 16px;
+    transition: all .3s linear;
+    @include ProximaNova(semibold);
+}
+
+.addInput {
+    left: -9999px;
+    position: absolute;
+}
+
+.addLabel {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+}
+
+.add {
+    display: flex;
+    flex-direction: column;
+
+    &:hover .addIcon {
+        fill: #fff;
+    }
+
+    &:hover .iconText {
+        color: #fff;
+    }
+}

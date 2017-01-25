@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
@@ -41,5 +41,16 @@ ReactDOM.render(
             </Route>
         </Router>
     </Provider>,
+    /*<Provider store={store}>
+        <Router history={browserHistory}>
+            <Route path="/" components={App}>
+                <IndexRoute components={Welcome}/>
+                <Route path="auth" components={Welcome} />
+                <Route path="main" components={Main}/>
+                <Route path="album" components={Album}/>
+                <Route path="search" components={Search}/>
+            </Route>
+        </Router>
+    </Provider>,*/
     document.getElementById('root')
 );

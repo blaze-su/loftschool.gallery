@@ -116,23 +116,13 @@ body {
 	}
 }
 
-.buttons {
+.buttonLogout {
 	position: absolute;
 	right: 40px;
 	top: 20px;
-	z-index: 2;
+	z-index: 1;
 }
 
-.buttonsWrapper {
-	display: flex;
-	align-items: flex-end;
-	justify-content: space-between;
-	-webkit-box-pack: justify;
-	-webkit-box-align: end;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	flex-direction: column;
-}
 
 .buttonEdit, .buttonLogout {
 	background: #fff;
@@ -142,13 +132,15 @@ body {
 	font-size: 14px;
 	@include Panton(bold);
 	overflow: hidden;
-	position: relative;
+	position: absolute;
 	text-decoration: none;
 	transition: all .3s;
 	padding: 10px;
 	width: 40px;
 	height: 40px;
 	margin-bottom: 10px;
+	top: 70px;
+	right: 40px;
 
 	&:hover {
 		background-color: #28bbf0;
@@ -222,4 +214,14 @@ body {
 	font-size: 16px;
 	padding: 11px 12px 11px 45px;
 	width: 100%;
+	outline: none;
+}
+
+.searchIcon {
+    fill: rgba(50,50,50,.6);
+    height: 15px;
+    left: 20px;
+    position: absolute;
+    top: 12px;
+    width: 15px;
 }

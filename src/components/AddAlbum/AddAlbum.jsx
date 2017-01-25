@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import s from './addalbum.scss';
-
+import Icon from 'react-icon-svg-symbol';
 import Button from './../PopupButton/PopupButton';
 import ImageUpload from './../ImagePreview/ImagePreview';
 
@@ -11,9 +12,18 @@ class AddAlbum extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pressed: false
+            pressed: false,
+            title: '',
+            mainImage: '',
+            userID: ''
         }
+
         this.onClickHandler = this.onClickHandler.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+    }
+    
+    onInputChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     componentDidMount() {
@@ -29,7 +39,11 @@ class AddAlbum extends React.Component {
         return (
             <div className={s.addAlbum}>
                 <div className={s.addAlbum__button} onClick={this.onClickHandler}>
-                    <div className={s.addAlbum__icon}></div>
+                    <Icon
+                        fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                        symbolId="add"
+                        iconClassName={s.addAlbum__icon}
+                    /> 
                     <span className={s.addAlbum__text}>Добавить</span>
                 </div>
                 <div className={this.state.pressed ?
@@ -44,7 +58,7 @@ class AddAlbum extends React.Component {
                         s.popup__container
                     }>
                         <header className={s.addPopup__header}>
-                            <h2 className={s.header__title}>Редактировать альбом</h2>
+                            <h2 className={s.header__title}>Добавить альбом</h2>
                             <div className={s.popupCloseIcon} onClick={this.onClickHandler}></div>
                         </header>
                         <main className={s.addPopup__main}>
@@ -70,4 +84,7 @@ class AddAlbum extends React.Component {
     
 };
 
-export default AddAlbum;
+export default connect(
+    null,
+    null
+)(AddAlbum);
