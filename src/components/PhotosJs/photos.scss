@@ -1,3 +1,74 @@
+@import '../../assets/scss/fonts.scss';
+
+.photos {
+	position: relative;
+}
+
+.container {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.buttonAdd {
+	background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    font-size: 14px;
+    font-family: "Panton";
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    transition: all .3s;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    right: 40px;
+    top: 0px;
+
+    &:hover {
+    	width: 112px;
+    	background-color: #28bbf0;
+    	color: #fff;
+
+    	.addText {
+    		opacity: 1;
+    		visibility: visible;
+    	}
+
+    	.addIcon {
+    		fill: #fff;
+    	}
+    }
+}
+
+.addIcon {
+	fill: #a0a09f;
+    height: 20px;
+    width: 20px;
+}
+
+.addText {
+	color: #fff;
+    display: inline;
+    line-height: 20px;
+    opacity: 0;
+    padding-left: 10px;
+    position: absolute;
+    transition: all .3s;
+    visibility: hidden;
+    width: 100%;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 .photos {
     display: flex;
     justify-content: space-between;
@@ -6,7 +77,7 @@
 }
 
 .fullscreen {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,8 +89,7 @@
 }
 
 .fullscreen__overlay {
-    z-index: 10;
-    position: absolute;
+    position: absolute;;
     top: 0;
     bottom: 0;
     left: 0;
@@ -29,10 +99,10 @@
 }
 
 .fullscreen__container {
+  position: relative;
     max-width: 60vw;
     z-index: 20;
     background: #ffffff;
-    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -40,12 +110,20 @@
 
 .container__image {
     width: 100%;
+    max-height: 41rem;
+    position: relative;
+
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
 }
 
 
 .container__info {
     display: flex;
     justify-content: center;
+    margin-top: 1.25rem;
     width: 100%;
     flex-wrap: wrap;
     max-width: 95%;
@@ -53,12 +131,28 @@
 
 .info__mainInfo {
     display: flex;
-    align-items: center;    
+    align-items: center;
     width: 100%;
+    margin-bottom: 1.25rem;
 }
 
 .mainInfo__author {
-    font-weight: bold;
+    @include Panton(bold);
+    display: flex;
+    align-items: center;
+}
+
+.author__avatar {
+    width: 3.1rem;
+    height: 3.1rem;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: .6rem;
+
+    & img {
+      height: 100%;
+      object-fit: cover;
+    }
 }
 
 .mainInfo__likes {
@@ -68,23 +162,47 @@
 .description__title {
     margin: 0;
     padding: 0;
+    @include ProximaNova(semibold);
+}
+
+.description__text {
+    @include ProximaNova(light);
 }
 
 .buttons {
     position: absolute;
     height: 100%;
-    top: 0; 
+    top: 0;
     background: #a0a09f;
+    border: none;
+    background: transparent;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover svg {
+      opacity: 1;
+    }
 }
 
 .nextButton, .previousButton {
     @extend .buttons;
 }
 
-.nextButton {   
+.nextButton {
     right: -5%
 }
 
 .previousButton {
     left: -5%
+}
+
+.arrow_right, .arrow_left {
+    width: 1.25rem;
+    width: 1.5rem;
+    fill: #FFF;
+    opacity: .8;
+    transition: .3s linear;
 }

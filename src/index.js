@@ -35,9 +35,9 @@ ReactDOM.render(
             <Route path="/" components={App}>
                 <IndexRoute components={Welcome}/>
                 <Route path="auth" components={Welcome} />
-                <Route path="main" components={requireAuth(Main)}/>
-                <Route path="album" components={requireAuth(Album)}/>
-                <Route path="search" components={requireAuth(Search)}/>
+                <Route path="main" components={Main}/>
+                <Route path="album" components={Album}/>
+                <Route path="search" components={Search}/>
             </Route>
         </Router>
     </Provider>,
