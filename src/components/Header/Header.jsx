@@ -4,7 +4,9 @@ import MainHeaderEdit from '../../components/MainHeaderEdit/MainHeaderEdit';
 import SocialIcons from '../../components/SocialIcons';
 import s from './header.scss';
 
-function Header() {
+function Header(props) {
+    const { vk, fb, twitter, google, email } = props.socials === undefined ? '#' : props.socials;
+
     return (
         <header className={s.header}>
             <div className={s.inner}>
