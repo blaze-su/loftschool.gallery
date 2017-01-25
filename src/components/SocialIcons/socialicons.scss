@@ -1,0 +1,32 @@
+@import '../../assets/scss/fonts.scss';
+
+.profileSocial {
+	margin: 0;
+}
+
+.socialList {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.socialItem {
+	display: inline-block;
+}
+
+.socialLink {
+	cursor: pointer;
+	display: block;
+}
+
+.socialIcon {
+	fill: rgba(255,255,255,.8);
+	transition: all .2s;
+	width: 20px;
+	height: 20px;
+	margin-right: 6px;
+
+	&:hover {
+		fill: rgba(255,255,255,1);
+	}
+}

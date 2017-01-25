@@ -99,6 +99,7 @@
     display: block;
     position: relative;
     height: 280px;
+    overflow: hidden;
 
     &:hover .myOverlay {
     	opacity: 1;

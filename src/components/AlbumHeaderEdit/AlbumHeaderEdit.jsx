@@ -1,8 +1,10 @@
 import React from 'react';
 
 import s from './albumheaderedit.scss';
+import Icon from 'react-icon-svg-symbol';
 
 import Button from './../PopupButton/PopupButton';
+import AddBackground from './../AddBackground';
 
 const Animation = require('./albumheaderedit_anim');
 
@@ -28,7 +30,11 @@ class HeaderEdit extends React.Component {
         return (
             <div className={s.container}>
                 <div className={s.editButton} onClick={this.onClickHandler}>
-                    <div className={s.editIcon + ' ' + 'icon-edit'}></div>
+                    <Icon
+                        fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
+                        symbolId="edit"
+                        iconClassName={s.editIcon}
+                    />
                     <span className={s.editText}>Редактировать</span>
                 </div>
                 <div className={this.state.active ?
@@ -43,6 +49,15 @@ class HeaderEdit extends React.Component {
                             :
                             s.slideBlock_top
                             }>
+                            <div className={s.user}>
+                                <div className={s.userPhoto}></div>
+                                <div className={s.userName}>Антон Черепов</div>
+                            </div>
+                            <div className={s.albumInfo}>
+                                <input type="text" className={s.titleInput}/>
+                                <textarea className={s.descriptionAlbum}></textarea>
+                            </div>
+                            <AddBackground />
                         </div>
                         <div className={this.state.active ?
                             s.slideBlock_bottom_active
