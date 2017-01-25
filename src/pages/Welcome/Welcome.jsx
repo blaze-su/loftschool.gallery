@@ -7,6 +7,7 @@ import Icon from 'react-icon-svg-symbol';
 import s from './welcome.scss';
 import { login } from '../../actions/authActions';
 import { userSignupRequest } from '../../actions/signupActions';
+import { getUserInfo } from '../../actions/userActions';
 
 
 class Welcome extends React.Component{
@@ -71,7 +72,10 @@ class Welcome extends React.Component{
     }
 
     this.props.login(data)
-      .then((res) => { browserHistory.push('/Main') })
+      .then((res) => { 
+        this.props.getUserInfo({ id: this.props.userId });
+        browserHistory.push('/Main'); 
+      })
       .catch(() => { console.log('Ошибка') });
   }
 
@@ -183,9 +187,10 @@ class Welcome extends React.Component{
 };
 
 export default connect(
-  null,
+  (state) => { return { userId: state.auth.user.id }},
   {
     login,
-    userSignupRequest
+    userSignupRequest,
+    getUserInfo
   }
 )(Welcome);

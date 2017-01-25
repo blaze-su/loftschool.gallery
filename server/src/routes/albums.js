@@ -1,14 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-//import { setUpConnection } from './Util/DataBaseUtils';
 import '../models/Album/Album';
 import '../models/User/User';
 
 const router = express.Router();
 const Album = mongoose.model('Album');
 const User = mongoose.model('User');
-//setUpConnection();
 
 router.post('/add', (req,res) => {
     const album = new Album({

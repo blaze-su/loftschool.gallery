@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import s from './addalbum.scss';
-
 import Button from './../PopupButton/PopupButton';
 import ImageUpload from './../ImagePreview/ImagePreview';
 
@@ -11,9 +11,18 @@ class AddAlbum extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pressed: false
+            pressed: false,
+            title: '',
+            mainImage: '',
+            userID: ''
         }
+
         this.onClickHandler = this.onClickHandler.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+    }
+    
+    onInputChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     componentDidMount() {
@@ -70,4 +79,7 @@ class AddAlbum extends React.Component {
     
 };
 
-export default AddAlbum;
+export default connect(
+    null,
+    null
+)(AddAlbum);

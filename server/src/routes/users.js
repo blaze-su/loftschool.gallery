@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import passwordHash from 'password-hash';
 import jwt from 'jsonwebtoken';
 
-import { setUpConnection } from '../Util/DataBaseUtils';
 import '../models/User/User';
 import config from '../../config';
 import signupValidation from '../Util/signUpValidation';
@@ -11,8 +10,6 @@ import loginValidation from '../Util/loginValidation';
 
 const router = express.Router();
 const User = mongoose.model('User');
-
-//setUpConnection();
 
 router.post('/register', (req, res) => {
     let user = req.body;
@@ -27,7 +24,7 @@ router.post('/register', (req, res) => {
                     username : user.username,
                     email: user.email,
                     password: user.password,
-                    description: '',
+                    description: 'Заполните описание и социальные сети, нажав кнопку "Редактировать"',
                     mainImage: 'NULL',
                     backgroundImage: 'NULL',
                     socials: { email: user.email },
@@ -90,9 +87,9 @@ router.post('/edit', (req, res) => {
 });
 
 router.post('/info', (req, res) => {
-    const id = req.body._id;
+    const id = req.body.id;
 
-    User.findById(id, { updatedAt: false, createdAt: false, password: false, __v: false }).then((data) => {
+    User.findById(id, { username: 1, description: 1, socials: 1, mainImage: 1, backgroundImage: 1, _id: 0 }).then((data) => {
         if(data) {
             res.status(200).json(data);
         } 

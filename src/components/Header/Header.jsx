@@ -2,7 +2,9 @@ import React from 'react';
 import Icon from 'react-icon-svg-symbol';
 import s from './header.scss';
 
-function Header() {
+function Header(props) {
+    const { vk, fb, twitter, google, email } = props.socials === undefined ? '#' : props.socials;
+
     return (
         <header className={s.header}>
             <div className={s.inner}>
@@ -11,12 +13,12 @@ function Header() {
                         <div className={s.profilePhoto}>
                         </div>
                         <div className={s.profileInfo}>
-                            <h1 className={s.profileName}>Алексей</h1>
-                            <p className={s.profileDescription}>Я веб разработчик</p>
+                            <h1 className={s.profileName}>{props.username}</h1>
+                            <p className={s.profileDescription}>{props.description}</p>
                             <div className={s.profileSocial}>
                                 <ul className={s.socialList}>
                                     <li className={s.socialItem}>
-                                        <a className={s.socialLink}>
+                                        <a className={s.socialLink} href={ vk }>
                                             <Icon
                                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                                                 symbolId="soc_vk"
@@ -25,7 +27,7 @@ function Header() {
                                         </a>
                                     </li>
                                     <li className={s.socialItem}>
-                                        <a className={s.socialLink}>
+                                        <a className={s.socialLink} href={ fb }>
                                             <Icon
                                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                                                 symbolId="soc_fb"
@@ -34,7 +36,7 @@ function Header() {
                                         </a>
                                     </li>
                                     <li className={s.socialItem}>
-                                        <a className={s.socialLink}>
+                                        <a className={s.socialLink} href={ twitter }>
                                             <Icon
                                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                                                 symbolId="soc_twitter"
@@ -43,7 +45,7 @@ function Header() {
                                         </a>
                                     </li>
                                     <li className={s.socialItem}>
-                                        <a className={s.socialLink}>
+                                        <a className={s.socialLink} href={ google }>
                                             <Icon
                                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                                                 symbolId="social_google"
@@ -52,7 +54,7 @@ function Header() {
                                         </a>
                                     </li>
                                     <li className={s.socialItem}>
-                                        <a className={s.socialLink}>
+                                        <a className={s.socialLink} href={email}>
                                             <Icon
                                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                                                 symbolId="soc_email"
@@ -75,7 +77,7 @@ function Header() {
                             />
                             <span className={s.buttonText}>Редактировать</span>
                         </a>
-                        <a className={s.buttonLogout} href='#'>
+                        <a className={s.buttonLogout} href='#' onClick={props.logout}>
                             <Icon
                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                                 symbolId="off"
