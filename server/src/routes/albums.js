@@ -26,7 +26,7 @@ router.post('/add', (req,res) => {
             .then(user => {
                 user.albums.push(data._id);
                 user.save();
-                res.status(200).json({albumId: data._id});
+                res.status(200).json({ albumId: data._id, title: data.title });
             })
             .catch(() => { res.status(400).json({ src: 'adding to user' }); });
         })
@@ -35,6 +35,23 @@ router.post('/add', (req,res) => {
 
 router.post('/delete', (req,res) => {
 
+});
+
+router.post('/getUserAlbums', (req,res) => {
+    const id = req.body.id;
+    let albums = [];
+    User.findById(id).then(user => { 
+        user.albums.forEach(albumId => {
+            albums.push({ _id: albumId });
+        });
+        Album.find({ $or: albums }, { title: 1, description: 1, mainImage: 1 })
+            .then(albumData => {
+                albums = albumData;
+                res.status(200).json(albums);
+            })
+            .catch(() => { res.status(400).send(); });
+    })
+    .catch(() => { res.status(400).send(); });
 });
 
 export default router;

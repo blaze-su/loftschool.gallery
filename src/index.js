@@ -29,6 +29,8 @@ if (localStorage.jwtToken) {
   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
 }
 
+localStorage.setItem('news', 0);
+
 ReactDOM.render(
     /*<Provider store={store}>
         <Router history={browserHistory}>

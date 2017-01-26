@@ -16,7 +16,9 @@ router.post('/add', (req,res) => {
             description: '',
             image: item.image,
             userId: item.userId,
+            userImage: item.userImage,
             albumId: item.albumId,
+            albumTitle: item.albumTitle,
             likesCount: 0,
             commentsCount: 0,
             usersLiked: [],
@@ -34,8 +36,6 @@ router.post('/add', (req,res) => {
             console.log(err);
             res.status(400).send();
         });
-
-    
 });
 
 router.post('/delete', (req,res) => {
@@ -46,4 +46,15 @@ router.post('/delete', (req,res) => {
         .catch((err) => { res.status(400).send() });
 });
 
+router.post('/news', (req,res) => {
+    const startsFrom = req.body.skip;
+    let news = [];
+    Image.find({}, { _id: 0, __v: 0, createdAt: 0, updatedAt: 0, isMainPhoto: 0, comments: 0, userId: 0, albumId: 0 }).sort({ createdAt: 1 }).skip(startsFrom).limit(6)
+        .then((data) => {
+            news = [...data];
+            res.status(200).json(news);
+        })
+        .catch(() => { res.status(400).send(); })
+});
+ 
 export default router;

@@ -3,21 +3,21 @@ import multer from 'multer';
 
 const router = Express.Router();
 
-let fileNames = [];
+
 
 const storage = multer.diskStorage({
   destination: './files',
   filename(req, file, cb) {
-    /*const generatedName = Date.now().toString() + file.originalname.slice(file.originalname.lastIndexOf('.'));
-    console.log(file.originalname);*/
     cb(null, `${file.originalname}`);
-    fileNames.push(file.originalname);
   }
 });
 
 const upload = multer({ storage });
 
-router.post('/upload', upload.single('file'), (req, res) => {
+router.post('/upload', upload.array('files', 20), (req, res) => {
+    let fileNames = [];
+    const files = [...req.files];
+    files.forEach(file => { fileNames.push(file.originalname) });
     res.status(200).json({ fileNames });
 });
 
