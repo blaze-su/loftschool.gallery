@@ -4,10 +4,10 @@ import AddAlbum from './../../components/AddAlbum/AddAlbum';
 import AlbumEdit from './../../components/AlbumEdit/AlbumEdit';
 import s from './my.scss';
 
-function My() {
+function My(props) {
     return (
         <div className={s.my}>
-            <AddAlbum/>
+            <AddAlbum id={props.id} userImage={ props.userImage } />
             <div className={s.container}>
                 <h1 className={s.myTitle}>Мои альбомы</h1>
                 <ul className={s.myList}>

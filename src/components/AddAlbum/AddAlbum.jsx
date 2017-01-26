@@ -5,8 +5,10 @@ import s from './addalbum.scss';
 import Icon from 'react-icon-svg-symbol';
 import Button from './../PopupButton/PopupButton';
 import ImageUpload from './../ImagePreview/ImagePreview';
-
 const Animation = require('./addalbum_anim');
+import { upload } from '../../actions/imagesActions';
+import { addAlbum } from '../../actions/albumActions';
+import { addImages } from '../../actions/imagesActions';
 
 class AddAlbum extends React.Component {
     constructor(props) {
@@ -14,12 +16,16 @@ class AddAlbum extends React.Component {
         this.state = {
             pressed: false,
             title: '',
+            description: '',
             mainImage: '',
-            userID: ''
+            userID: this.props.id
         }
+        this.images = [];
 
         this.onClickHandler = this.onClickHandler.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.onInputImage = this.onInputImage.bind(this);
+        this.addAlbumHandler = this.addAlbumHandler.bind(this);
     }
     
     onInputChange(e) {
@@ -32,6 +38,30 @@ class AddAlbum extends React.Component {
 
     onClickHandler() {
         this.setState({pressed: !this.state.pressed});
+    }
+
+    onInputImage(image) {
+        this.setState({ mainImage: image });
+    }
+
+    addAlbumHandler(e) {
+        this.props.addAlbum(this.state).then((albumResponse) => {
+            let image = {
+                image: this.state.mainImage,
+                userId: this.state.userID,
+                userImage: this.props.userImage,
+                albumId: albumResponse.data.albumId,
+                albumTitle: albumResponse.data.title,
+                isMainPhoto: true
+            }
+            this.images.push(image);
+            this.props.addImages(this.images)
+                .then(() => {
+                    this.images = [];
+                    this.setState({ pressed: !this.state.pressed });
+                })
+                .catch(() => {})
+        })
     }
 
 
@@ -64,16 +94,16 @@ class AddAlbum extends React.Component {
                         <main className={s.addPopup__main}>
                             <form action="" className={s.main__form}>
                                 <label htmlFor="" className={s.form__label}>Название</label>
-                                <input type="text" className={s.form__nameInput}/>
+                                <input type="text" className={s.form__nameInput} name="title" onChange={this.onInputChange}/>
                                 <label htmlFor="" className={s.form__label}>Описание</label>
-                                <input type="text" className={s.form__descriptionInput}/>
+                                <input type="text" className={s.form__descriptionInput} name="description" onChange={this.onInputChange}/>
                                 <div className={s.addPopup__image}>
-                                    <ImageUpload text="Загрузить обложку"/>
+                                    <ImageUpload text="Загрузить обложку" uploadImage={this.props.upload} onInputImage={this.onInputImage}/>
                                 </div>
                             </form>
                         </main>
                         <div className={s.addPopup__buttons}>
-                            <Button className="save"></Button>
+                            <Button className="save" onClick={ this.addAlbumHandler } ></Button>
                             <Button className="cancel" onClick={this.onClickHandler}></Button>
                         </div>
                     </div>
@@ -86,5 +116,9 @@ class AddAlbum extends React.Component {
 
 export default connect(
     null,
-    null
+    {
+        upload,
+        addAlbum,
+        addImages
+    }
 )(AddAlbum);

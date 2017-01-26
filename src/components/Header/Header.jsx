@@ -15,14 +15,15 @@ function Header(props) {
                         <div className={s.profilePhoto}>
                         </div>
                         <div className={s.profileInfo}>
-                            <h1 className={s.profileName}>Алексей</h1>
-                            <p className={s.profileDescription}>Я веб разработчик</p>
+                            <h1 className={s.profileName}>{props.username}</h1>
+                            <p className={s.profileDescription}>{props.description}</p>
                             <SocialIcons />
                         </div>
                     </div>
                 </div>
-                <MainHeaderEdit/>
-                <a className={s.buttonLogout} href='#'>
+                <MainHeaderEdit uploadImage={ props.uploadImage } id={ props.id } onEditHandler={props.onEditHandler}
+                                username={props.username} description={props.description}/>
+                <a className={s.buttonLogout} href='#' onClick={props.logout}>
                     <Icon
                         fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
                         symbolId="off"
