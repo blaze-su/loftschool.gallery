@@ -32,17 +32,6 @@ if (localStorage.jwtToken) {
 localStorage.setItem('news', 0);
 
 ReactDOM.render(
-    /*<Provider store={store}>
-        <Router history={browserHistory}>
-            <Route path="/" components={App}>
-                <IndexRoute components={Welcome}/>
-                <Route path="auth" components={Welcome} />
-                <Route path="main" components={Main}/>
-                <Route path="album" components={Album}/>
-                <Route path="search" components={Search}/>
-            </Route>
-        </Router>
-    </Provider>,*/
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" components={App}>
