@@ -7,12 +7,15 @@ import s from './header.scss';
 function Header(props) {
     const { vk, fb, twitter, google, email } = props.socials === undefined ? '#' : props.socials;
 
+    const mainImage = props.mainImage === undefined ? require('./images/no_photo.jpg') : require(`../../../server/files/${props.mainImage}`);
+    let backgroundImage = props.backgroundImage === undefined ? require('./images/bg-profile.jpg') : require(`../../../server/files/${props.backgroundImage}`);
+
     return (
-        <header className={s.header}>
+        <header className={s.header} style={{background: `url('${backgroundImage}') center 50% no-repeat`}} >
             <div className={s.inner}>
                 <div className={s.headerTop}>
                     <div className={s.profile}>
-                        <div className={s.profilePhoto}>
+                        <div className={s.profilePhoto} style={{background: `url('${mainImage}') no-repeat 50% 50%`}} >
                         </div>
                         <div className={s.profileInfo}>
                             <h1 className={s.profileName}>{props.username}</h1>

@@ -2,13 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import '../models/Image/Image';
+import '../models/Album/Album';
 
 const router = express.Router();
 const Image = mongoose.model('Image');
+const Album = mongoose.model('Album');
 
 router.post('/add', (req,res) => {
     let images = req.body;
     let forDB = [];
+    let imagesId = [];
 
     images.forEach((item) => {
         let image = new Image({

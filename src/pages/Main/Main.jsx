@@ -14,9 +14,9 @@ import { getUserAlbums } from '../../actions/albumActions';
 class Main extends React.Component {
 
 	componentWillMount() {
-		this.props.getUserInfo({ id: this.props.user.id });
-		this.props.getNews(parseInt(localStorage.news));
-		this.props.getUserAlbums(this.props.user.id);
+		this.props.getUserInfo({ id: this.props.user.id }).catch(() => console.log('Ошибка при загрузке пользователя'));
+		this.props.getNews(parseInt(localStorage.news)).catch(() => console.log('Ошибка при загрузке нового'));
+		this.props.getUserAlbums(this.props.user.id).catch(() => console.log('Ошибка при загрузке альбомов'));
 	}
 
 	render() {
@@ -34,8 +34,8 @@ class Main extends React.Component {
 					onEditHandler={this.props.editUserInfo}
 				/>
 				<div className={s.contentWrapper}>
-					<New />
-					<My id={ this.props.user.id } userImage={ this.props.user.userImage }/>
+					<New news={this.props.news}/>
+					<My id={ this.props.user.id } userImage={ this.props.user.userImage } albums={this.props.albums}/>
 				</div>
 				<Footer />
 			</div>
@@ -54,8 +54,8 @@ const mapStateToProps = (state) => {
 			backgroundImage: state.userInfo.backgroundImage,
 			userImage: state.userInfo.mainImage
 		},
-		news: {},
-		albums: {}
+		news: state.news,
+		albums: state.albums
 	}
 }
 

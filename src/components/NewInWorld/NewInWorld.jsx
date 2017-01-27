@@ -3,10 +3,12 @@ import Icon from 'react-icon-svg-symbol';
 
 import s from './newinworld.scss';
 
-function NewInWorld() {
+function NewInWorld(props) {
+    const image = require(`../../../server/files/${props.image}`);
+    const userImage = require(`../../../server/files/${props.userImage}`);
     return (
         <li className={s.albumItem}>
-            <a className={s.itemImage}>
+            <a className={s.itemImage} style={{background: `url('${image}') no-repeat 50% 50%`}} >
                 <div className={s.itemOverlay}>
                     <Icon
                         fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
@@ -17,7 +19,7 @@ function NewInWorld() {
             </a>
             <div className={s.albumInfo}>
                 <div className={s.albumAuthor}>
-                    <a className={s.authorPhoto}>
+                    <a className={s.authorPhoto} style={{background: `url('${userImage}') no-repeat 50% 50%`}} >
                         <div className={s.photoOverlay}>
                             <Icon
                                 fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
@@ -28,7 +30,7 @@ function NewInWorld() {
                     </a>
                 </div>
                 <div className={s.albumCaption}>
-                    <p className={s.albumTitle}>Путешествие на лодке по озеру</p>
+                    <p className={s.albumTitle}>{props.title}</p>
                     <div className={s.albumDescription}>
                         <a href='#' className={s.albumComments}>
                             <Icon
@@ -36,7 +38,7 @@ function NewInWorld() {
                                 symbolId="comments"
                                 iconClassName={s.commentsIcon}
                             />
-                            <span className={s.quantityComments}>4</span>
+                            <span className={s.quantityComments}>{props.commentsCount}</span>
                         </a>
                         <a href='#' className={s.albumLikes}>
                             <Icon
@@ -44,7 +46,7 @@ function NewInWorld() {
                                 symbolId="like"
                                 iconClassName={s.likesIcon}
                             />
-                            <span className={s.quantityLikes}>2</span>
+                            <span className={s.quantityLikes}>{props.likesCount}</span>
                         </a>
                     </div>
                 </div>
@@ -56,7 +58,7 @@ function NewInWorld() {
                         symbolId="album"
                         iconClassName={s.albumIcon}
                     />
-                    <h3 className={s.albumMain}>Прогулки по воде</h3>
+                    <h3 className={s.albumMain}>{props.albumTitle}</h3>
                 </a>
             </div>
         </li>

@@ -25,8 +25,8 @@ router.post('/register', (req, res) => {
                     email: user.email,
                     password: user.password,
                     description: 'Заполните описание и социальные сети, нажав кнопку "Редактировать"',
-                    mainImage: 'NULL',
-                    backgroundImage: 'NULL',
+                    //mainImage: 'no_image.jpg',
+                    //backgroundImage: 'bg-profile.jpg',
                     socials: { email: user.email },
                     albums: [ ]
                 });

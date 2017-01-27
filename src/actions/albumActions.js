@@ -22,3 +22,10 @@ export function getUserAlbums(id) {
             });
     }
 }
+
+export function getAlbumInfo(id) {
+    return dispatch => {
+        const data = { id: id };
+        return axios.post('http://localhost:8080/albums/getAlbumInfo', data);
+    }
+}

@@ -49,7 +49,7 @@ class AddAlbum extends React.Component {
             let image = {
                 image: this.state.mainImage,
                 userId: this.state.userID,
-                userImage: this.props.userImage,
+                userImage: this.props.userImage === undefined ? 'no_photo.jpg' : this.props.userImage,
                 albumId: albumResponse.data.albumId,
                 albumTitle: albumResponse.data.title,
                 isMainPhoto: true

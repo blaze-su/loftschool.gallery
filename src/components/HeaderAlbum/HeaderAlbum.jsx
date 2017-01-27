@@ -3,13 +3,14 @@ import Icon from 'react-icon-svg-symbol';
 import AlbumHeaderEdit from '../../components/AlbumHeaderEdit/AlbumHeaderEdit';
 import s from './headeralbum.scss';
 
-function HeaderAlbum() {
+function HeaderAlbum(props) {
+	const album = props.album ? props.album : {};
     return (
         <header className={s.headerAlbum}>
             <div className={s.top}>
             	<div className={s.user}>
             		<div className={s.userPhoto}></div>
-            		<div className={s.userName}>Антон Черепов</div>
+            		<div className={s.userName}>{ album.username }</div>
             	</div>
             	<div className={s.albumInfo}>
             		<div className={s.albumTitle}>
