@@ -11,7 +11,6 @@ class ImageUpload extends React.Component {
   _handleSubmit(e) {
     e.preventDefault();
     // TODO: do something with -> this.state.file
-    console.log('handle uploading-', this.state.files);
   }
 
   _handleImageChange(e) {
@@ -39,39 +38,12 @@ class ImageUpload extends React.Component {
   }
     
     console.log(filesURL);
-
-  //   let files = e.target.files;
-  //   let newFiles = [].slice.call(files);
-  //   console.log(newFiles);
-
-  //   reader.onloadend = () => {
-  //     this.setState({
-  //       files: newFiles,
-  //       imagePreviewUrl: reader.result
-  //     });
-  //     console.log(this.state.imagePreviewUrl);
-  //   }
-  //   // this.state.files.map()
-  //   newFiles.map(file => {
-  //     let reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //   });
   }
 
   render() {
     let {imagePreviewUrl} = this.state;
     let URLs = {imagePreviewUrl};
-    let $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
-    } else {
-      $imagePreview = (<div className={s.previewText}></div>);
-    }
-    console.log(URLs.imagePreviewUrl.length);
-    if (URLs.imagePreviewUrl.length > 0) {
-      URLs.imagePreviewUrl.map(file => console.log('OK'))
-    }  
-
+    
     return (
       <div className={s.previewComponent}>
         {URLs.imagePreviewUrl.length > 0 ?  URLs.imagePreviewUrl.map(file => {return (
