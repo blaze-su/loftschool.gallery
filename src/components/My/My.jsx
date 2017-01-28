@@ -1,96 +1,33 @@
 import React from 'react';
+import { map } from 'lodash';
+
 import Icon from 'react-icon-svg-symbol';
 import AddAlbum from './../../components/AddAlbum/AddAlbum';
-import AlbumEdit from './../../components/AlbumEdit/AlbumEdit';
+import AlbumItem from './../../components/AlbumItem';
 import s from './my.scss';
 
-function My() {
-    return (
-        <div className={s.my}>
-            <AddAlbum/>
-            <div className={s.container}>
-                <h1 className={s.myTitle}>Мои альбомы</h1>
-                <ul className={s.myList}>
-                    <li className={s.myItem}>
-                        <a href='#' className={s.myImage}>
-                            <div className={s.myOverlay}>
-                                <div className={s.myText}>
-                                    <div className={s.myDescription}>Фотографии природы леса, енотов и оленей...</div>
-                                    <div className={s.myWrapper}>
-                                        <span className={s.myNumber}>18</span>
-                                        <span className={s.myPhoto}> Фотографий</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div className={s.myFooter}>
-                            <AlbumEdit/>
-                            <a href='' className={s.myLink}>
-                                <h3 className={s.linkText}>Прогулки на лодке</h3>
-                            </a>
-                        </div>
-                    </li>
-                    <li className={s.myItem}>
-                        <a href='#' className={s.myImage}>
-                            <div className={s.myOverlay}>
-                                <div className={s.myText}>
-                                    <div className={s.myDescription}>Фотографии природы леса, енотов и оленей...</div>
-                                    <div className={s.myWrapper}>
-                                        <span className={s.myNumber}>18</span>
-                                        <span className={s.myPhoto}> Фотографий</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div className={s.myFooter}>
-                            <AlbumEdit/>
-                            <a href='' className={s.myLink}>
-                                <h3 className={s.linkText}>Прогулки на лодке</h3>
-                            </a>
-                        </div>
-                    </li>
-                    <li className={s.myItem}>
-                        <a href='#' className={s.myImage}>
-                            <div className={s.myOverlay}>
-                                <div className={s.myText}>
-                                    <div className={s.myDescription}>Фотографии природы леса, енотов и оленей...</div>
-                                    <div className={s.myWrapper}>
-                                        <span className={s.myNumber}>18</span>
-                                        <span className={s.myPhoto}> Фотографий</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div className={s.myFooter}>
-                            <AlbumEdit/>
-                            <a href='' className={s.myLink}>
-                                <h3 className={s.linkText}>Прогулки на лодке</h3>
-                            </a>
-                        </div>
-                    </li>
-                    <li className={s.myItem}>
-                        <a href='#' className={s.myImage}>
-                            <div className={s.myOverlay}>
-                                <div className={s.myText}>
-                                    <div className={s.myDescription}>Фотографии природы леса, енотов и оленей...</div>
-                                    <div className={s.myWrapper}>
-                                        <span className={s.myNumber}>18</span>
-                                        <span className={s.myPhoto}> Фотографий</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div className={s.myFooter}>
-                            <AlbumEdit/>
-                            <a href='' className={s.myLink}>
-                                <h3 className={s.linkText}>Прогулки на лодке</h3>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+class My extends React.Component {
+    render() {
+        const albums = this.props.albums; 
+        return (
+            <div className={s.my}>
+                <AddAlbum id={ this.props.id } userImage={ this.props.userImage } />
+                <div className={s.container}>
+                    <h1 className={s.myTitle}>Мои альбомы</h1>
+                    <ul className={s.myList}>
+                        { map(albums, (album, index) => (
+                            <AlbumItem key={index} _id={album._id} mainImage={album.mainImage} title={album.title} imagesCount={album.imagesCount} description={album.description}/>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default My;
+/*  
+<AlbumItem mainImage="welcome.jpg" title="Первое" imagesCount="5" description="Короткое"/>
+<AlbumItem mainImage="blog_.jpg" title="Второе" imagesCount="1000" description="Описание средней длины"/>
+<AlbumItem mainImage="blog_.jpg" title="Третье" imagesCount="20" description="Самое длинное описание из тех, что есть на этой странице"/>
+*/

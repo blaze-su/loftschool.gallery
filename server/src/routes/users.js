@@ -25,8 +25,8 @@ router.post('/register', (req, res) => {
                     email: user.email,
                     password: user.password,
                     description: 'Заполните описание и социальные сети, нажав кнопку "Редактировать"',
-                    mainImage: 'NULL',
-                    backgroundImage: 'NULL',
+                    //mainImage: 'no_image.jpg',
+                    //backgroundImage: 'bg-profile.jpg',
                     socials: { email: user.email },
                     albums: [ ]
                 });
@@ -73,11 +73,17 @@ router.post('/signin', (req, res) => {
 router.post('/edit', (req, res) => {
     const userData = req.body;
 
-    User.findById(userData._id).then((data) => {
+    User.findById(userData.id).then((data) => {
         if(data) {
-            data.mainImage = userData.mainImage;
-            data.backgroundImage = userData.backgroundImage;
-            data.socials = userData.socials;
+            data.username = userData.username === '' ? data.username : userData.username;
+            data.description = userData.description === '' ? data.description : userData.description;
+            data.mainImage = userData.mainImage !== '' ? userData.mainImage : data.mainImage;
+            data.backgroundImage = userData.backgroundImage !== '' ? userData.backgroundImage : data.backgroundImage;
+            data.socials.vk = userData.socials.vk ? userData.socials.vk : data.socials.vk;
+            data.socials.fb = userData.socials.fb ? userData.socials.fb : data.socials.fb;
+            data.socials.twitter = userData.socials.twitter ? userData.socials.twitter : data.socials.twitter;
+            data.socials.google = userData.socials.google ? userData.socials.google : data.socials.google;
+            data.socials.email = userData.socials.email ? userData.socials.email : data.socials.email;
             data.save();
             res.status(200).send();
         } else {

@@ -15,7 +15,15 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    userImage: {
+        type: String,
+        required: true
+    },
     albumId: {
+        type: String,
+        required: true
+    },
+    albumTitle: {
         type: String,
         required: true
     },

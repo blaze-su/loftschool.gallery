@@ -1,9 +1,7 @@
 export default (state = {}, action = {}) => {
     switch(action.type) {
         case 'ADD_IMAGES':
-            return {
-                lastImages: [...state, action.images]
-            }
+            return  [...state, ...action.images];
         default: return state;
     }
 }
