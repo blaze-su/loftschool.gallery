@@ -1,0 +1,222 @@
+@import '../../../../assets/scss/fonts.scss';
+
+.buttonAdd {
+	background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    font-size: 14px;
+    font-family: "Panton";
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    transition: all .3s;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    right: 40px;
+    top: 30px;
+
+    &:hover {
+    	width: 112px;
+    	background-color: #28bbf0;
+    	color: #fff;
+
+    	.addText {
+    		opacity: 1;
+    		visibility: visible;
+    	}
+
+    	.addIcon {
+    		fill: #fff;
+    	}
+    }
+}
+
+.addIcon {
+	fill: #a0a09f;
+    height: 20px;
+    width: 20px;
+}
+
+.addText {
+	color: #fff;
+    display: inline;
+    line-height: 20px;
+    opacity: 0;
+    padding-left: 10px;
+    position: absolute;
+    transition: all .3s;
+    visibility: hidden;
+    width: 100%;
+}
+
+.addAlbum__popup {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 99;
+
+    &_active {
+        @extend .addAlbum__popup;
+        visibility: visible;
+        position: fixed;
+        z-index: 100;
+    }
+}
+
+.popup__overlay {
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: #000;
+    opacity: .9;
+    width: 100%;
+    height: 100%;
+    transition: .3s linear;
+}
+
+.popup__container {
+    position: absolute;
+    top: -150%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 43.75rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .3s linear;
+
+    &_active {
+        @extend .popup__container;
+        top: 0;
+    }
+}
+
+.addPopup {
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+
+    &_active {
+        @extend .addPopup;
+        visibility: visible;
+    }
+}
+
+.addPopup__overlay {
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: #000;
+    opacity: .9;
+    width: 100vw;
+    height: 100vh;
+    transition: .3s linear;
+}
+
+.addPopup__container {
+    position: absolute;
+    top: -150%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 43.75rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .3s linear;
+
+    &_active {
+        @extend .addPopup__container;
+        top: 0;
+    }
+}
+
+.addPopup__header, .addPopup__main, .addPopup__buttons {
+    padding: .8rem;
+    box-sizing: border-box;
+}
+
+.addPopup__header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background: #f1f1f1;
+    width: 100%;
+
+    & h2 {
+        line-height: 4rem;
+        margin: 0;
+    }
+
+    .popupCloseIcon {
+        margin-left: auto;
+        margin-right: .5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url(../../../../assets/images/close.svg);
+        opacity: .6;
+        transition: .3s linear;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .9;
+        }
+    }
+}
+
+.header__title {
+    @include Panton(bold);
+}
+
+.addPopup__main {
+    background: #FFF;
+}
+
+.main__span {
+    @include Panton(bold);
+    margin-right: 1rem;
+}
+
+.main__title {
+    @include ProximaNova(light);
+}
+
+.addPopup__image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+.addPopup__buttons {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    background: #f1f1f1;
+}
+
+.deleteButton {
+    margin-left: auto;
+}
