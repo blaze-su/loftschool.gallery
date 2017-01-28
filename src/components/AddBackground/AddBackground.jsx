@@ -8,7 +8,8 @@ class AddBackground extends React.Component {
         data.append('files', this[e.target.name].files[0]);
         this.props.uploadImage(data)
             .then(res => {
-                this.props.setBackgroundImage(res.data.fileNames[0]);
+                if(this.props.type === 'album') this.props.setMainImage(res.data.fileNames[0]);
+                else this.props.setBackgroundImage(res.data.fileNames[0]);
             });
     }
 

@@ -37,7 +37,37 @@ router.post('/add', (req,res) => {
 });
 
 router.post('/delete', (req,res) => {
+    const id = req.body.id;
+    let userId;
 
+    Image.remove({albumId: id})
+        .then(() => {
+            console.log('Начало');
+            return Album.findById(id);
+        })
+        .then((album) => {
+            console.log('Начало пользователь');
+            userId = album.userID;
+            return User.findById(userId);
+        })
+        .then((user) => {
+            console.log('Получение пользователь');
+            let albums = user.albums;
+            console.log(albums);
+            albums = [...albums.slice(0, albums.indexOf(id)), ...albums.slice(albums.indexOf(id)+1)];
+            user.albums = albums;
+            return user.save();
+        })
+        .then(() => {
+            console.log('Начало альбом');
+            return Album.remove({_id: id});
+        })
+        .then(() => {
+            res.status(200).send();
+        })
+        .catch(() => {
+            res.status(400).send();
+        })
 });
 
 router.post('/getUserAlbums', (req,res) => {
@@ -77,6 +107,50 @@ router.post('/getAlbumInfo', (req,res) => {
                 .catch(() => res.status(400).send());
         })
         .catch(() => res.status(400).send());
+});
+
+router.post('/edit', (req,res) => {
+    const albumData = req.body;
+
+    console.log(albumData);
+
+    Album.findById(albumData.id)
+        .then(album => {
+            console.log('Альбом');
+            album.title = albumData.title;
+            album.description = albumData.description;
+            album.mainImage = albumData.mainImage !== 'NO_IMAGE' ? albumData.mainImage : album.mainImage;
+
+            return album.save();
+        })
+        .then(() => {
+            console.log('удаление карттинки');
+            if(albumData.mainImage !== 'NO_IMAGE') return Image.remove({albumId: albumData.id, isMainPhoto: true});
+        })
+        .then(() => {
+            console.log('создание картинки');
+            if(albumData.mainImage !== 'NO_IMAGE') {
+                const image = new Image({
+                    title: 'Фотография без названия',
+                    description: '',
+                    image: albumData.mainImage,
+                    userId: albumData.userId,
+                    userImage: albumData.userImage,
+                    albumId: albumData.id,
+                    albumTitle: albumData.title,
+                    likesCount: 0,
+                    commentsCount: 0,
+                    usersLiked: [],
+                    comments: [],
+                    isMainPhoto: true
+                });
+                return image.save();
+            }
+        })
+        .then(() => {
+            res.status(200).send();
+        })
+        .catch((err) => res.status(400).json({err}));
 });
 
 export default router;

@@ -11,6 +11,8 @@ class Like extends React.Component {
         this.state = {
             liked: false
         }
+
+        this.onClickHandler= this.onClickHandler.bind(this);
     }
 
     componentDidMount() {
@@ -24,8 +26,6 @@ class Like extends React.Component {
             this.props.onLike('add');
         }
         this.setState({liked: !this.state.liked});
-        
-        
     } 
 
 

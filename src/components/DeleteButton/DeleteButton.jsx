@@ -24,7 +24,7 @@ class Like extends React.Component {
 
     render() {
         return (
-            <button className={s.delete_button} onClick={this.props.onClick}>Удалить</button>
+            <button className={s.delete_button} onClick={this.props.onDeleteClick}>Удалить</button>
         );
     };
     

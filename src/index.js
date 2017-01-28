@@ -32,7 +32,7 @@ if (localStorage.jwtToken) {
 localStorage.setItem('news', 0);
 
 ReactDOM.render(
-    <Provider store={store}>
+    /*<Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" components={App}>
                 <IndexRoute components={Welcome}/>
@@ -42,8 +42,8 @@ ReactDOM.render(
                 <Route path="search" components={Search} />
             </Route>
         </Router>
-    </Provider>,
-    /*<Provider store={store}>
+    </Provider>,*/
+    <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" components={App}>
                 <IndexRoute components={Welcome}/>
@@ -53,6 +53,6 @@ ReactDOM.render(
                 <Route path="search" components={requireAuth(Search)}/>
             </Route>
         </Router>
-    </Provider>,*/
+    </Provider>,
     document.getElementById('root')
 );

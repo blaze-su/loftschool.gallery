@@ -13,18 +13,19 @@ class ImageUpload extends React.Component {
     this.onInputImage = this.onInputImage.bind(this);
   }
 
-  _handleSubmit(e) {
+  /*_handleSubmit(e) {
     e.preventDefault();
     // TODO: do something with -> this.state.file
     console.log('handle uploading-', this.state.file);
-  }
+  }*/
 
   onInputImage(e) {
       let data = new FormData();
       data.append('files', this.mainImage.files[0]);
       this.props.uploadImage(data)
           .then((res) => {
-              this.props.onInputImage(res.data.fileNames[0]);
+              if(this.props.type === 'editMain') this.props.setMainImage(res.data.fileNames[0]);
+              else this.props.onInputImage(res.data.fileNames[0]);
           })
     }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ImagePreview from 'react-image-preview';
 import Icon from 'react-icon-svg-symbol';
 
 import s from './albumedit.scss';
@@ -14,9 +13,20 @@ class AlbumEdit extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            edited: false
+            edited: false,
+            title: '',
+            description: '',
+            mainImage: 'NO_IMAGE',
+            id: this.props.id,
+            userImage: this.props.userImage,
+            userId: this.props.userId
         }
+
         this.onClickHandler = this.onClickHandler.bind(this);
+        this.onDeleteClick = this.onDeleteClick.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
+        this.setMainImage = this.setMainImage.bind(this);
+        this.onSave = this.onSave.bind(this);
     }
 
     componentDidMount() {
@@ -25,6 +35,38 @@ class AlbumEdit extends React.Component {
 
     onClickHandler() {
         this.setState({edited: !this.state.edited});
+    }
+
+    onDeleteClick() {
+        this.props.deleteAlbum(this.props.id)
+            .then(() => {
+                this.setState({
+                edited: !this.state.edited,
+                title: '',
+                description: '',
+                mainImage: 'NO_IMAGE',
+                });
+            })
+    }
+
+    onInputChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    setMainImage(image) {
+        this.setState({ mainImage: image });
+    }
+
+    onSave() {
+        this.props.editAlbum(this.state)
+            .then(() => {
+                this.setState({
+                edited: !this.state.edited,
+                title: '',
+                description: '',
+                mainImage: 'NO_IMAGE',
+                });
+            })
     }
 
 
@@ -56,19 +98,24 @@ class AlbumEdit extends React.Component {
                         <main className={s.editPopup__main}>
                             <form action="" className={s.main__form}>
                                 <label htmlFor="" className={s.form__label}>Название</label>
-                                <input type="text" className={s.form__nameInput}/>
+                                <input name="title" type="text" className={s.form__nameInput} onChange={this.onInputChange}/>
                                 <label htmlFor="" className={s.form__label}>Описание</label>
-                                <input type="text" className={s.form__descriptionInput}/>
+                                <input name="description" type="text" className={s.form__descriptionInput} onChange={this.onInputChange}/>
                                 <div className={s.editPopup__image}>
-                                    <ImageUpload text="Загрузить обложку"/>
+                                    <ImageUpload 
+                                        text="Загрузить обложку" 
+                                        type="editMain" 
+                                        setMainImage={this.setMainImage } 
+					                    uploadImage={ this.props.uploadImage }
+                                    />
                                 </div>
                             </form>
                         </main>
                         <div className={s.editPopup__buttons}>
-                            <Button className="save"></Button>
+                            <Button className="save" onClick={this.onSave}></Button>
                             <Button className="cancel" onClick={this.onClickHandler}></Button>
                             <div className={s.deleteButton}>
-                                <DeleteButton/>
+                                <DeleteButton onDeleteClick={this.onDeleteClick}/>
                             </div>
                         </div>
                     </div>

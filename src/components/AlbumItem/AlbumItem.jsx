@@ -22,7 +22,14 @@ class AlbumItem extends React.Component {
                     </div>
                 </Link>
                 <div className={s.myFooter}>
-                    <AlbumEdit/>
+                    <AlbumEdit 
+                        id={ this.props._id }
+						deleteAlbum={this.props.deleteAlbum}
+						editAlbum={this.props.editAlbum}
+					    uploadImage={ this.props.uploadImage }
+                        userImage={this.props.userImage}
+						userId={this.props.userId}
+                    />
                     <a href='' className={s.myLink}>
                         <h3 className={s.linkText}>{this.props.title}</h3>
                     </a>

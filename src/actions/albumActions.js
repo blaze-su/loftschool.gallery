@@ -6,8 +6,9 @@ export function addAlbum(data) {
     }
 }
 
-export function deleteAlbum(data) {
+export function deleteAlbum(id) {
     return dispatch => {
+        const data = { id: id };
         return axios.post('http://localhost:8080/albums/delete', data);
     }
 }
@@ -27,5 +28,11 @@ export function getAlbumInfo(id) {
     return dispatch => {
         const data = { id: id };
         return axios.post('http://localhost:8080/albums/getAlbumInfo', data);
+    }
+}
+
+export function editAlbum(data) {
+    return dispatch => {
+        return axios.post('http://localhost:8080/albums/edit', data);
     }
 }

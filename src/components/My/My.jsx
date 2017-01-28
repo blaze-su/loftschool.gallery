@@ -16,7 +16,19 @@ class My extends React.Component {
                     <h1 className={s.myTitle}>Мои альбомы</h1>
                     <ul className={s.myList}>
                         { map(albums, (album, index) => (
-                            <AlbumItem key={index} _id={album._id} mainImage={album.mainImage} title={album.title} imagesCount={album.imagesCount} description={album.description}/>
+                            <AlbumItem 
+                                key={index} 
+                                _id={album._id} 
+                                mainImage={album.mainImage} 
+                                title={album.title} 
+                                imagesCount={album.imagesCount} 
+                                description={album.description}
+                                deleteAlbum={this.props.deleteAlbum}
+                                editAlbum={this.props.editAlbum}
+					            uploadImage={ this.props.uploadImage }
+						        userId={this.props.userId}
+                                userImage={this.props.userImage}
+                            />
                         ))}
                     </ul>
                 </div>
@@ -26,8 +38,3 @@ class My extends React.Component {
 }
 
 export default My;
-/*  
-<AlbumItem mainImage="welcome.jpg" title="Первое" imagesCount="5" description="Короткое"/>
-<AlbumItem mainImage="blog_.jpg" title="Второе" imagesCount="1000" description="Описание средней длины"/>
-<AlbumItem mainImage="blog_.jpg" title="Третье" imagesCount="20" description="Самое длинное описание из тех, что есть на этой странице"/>
-*/

@@ -7,17 +7,11 @@ import New from '../../components/New';
 import My from '../../components/My';
 import Footer from '../../components/Footer';
 import { logout } from '../../actions/authActions';
-import { getUserInfo, editUserInfo } from '../../actions/userActions';
-import { upload, getNews } from '../../actions/imagesActions';
-import { getUserAlbums } from '../../actions/albumActions';
+import { editUserInfo } from '../../actions/userActions';
+import { upload } from '../../actions/imagesActions';
+import { editAlbum, deleteAlbum } from '../../actions/albumActions';
 
 class Main extends React.Component {
-
-	componentWillMount() {
-		this.props.getUserInfo({ id: this.props.user.id }).catch(() => console.log('Ошибка при загрузке пользователя'));
-		this.props.getNews(parseInt(localStorage.news)).catch(() => console.log('Ошибка при загрузке нового'));
-		this.props.getUserAlbums(this.props.user.id).catch(() => console.log('Ошибка при загрузке альбомов'));
-	}
 
 	render() {
 		return (
@@ -35,7 +29,15 @@ class Main extends React.Component {
 				/>
 				<div className={s.contentWrapper}>
 					<New news={this.props.news}/>
-					<My id={ this.props.user.id } userImage={ this.props.user.userImage } albums={this.props.albums}/>
+					<My 
+						id={ this.props.user.id } 
+						userImage={ this.props.user.userImage } 
+						albums={this.props.albums}
+						deleteAlbum={this.props.deleteAlbum}
+						editAlbum={this.props.editAlbum}
+						uploadImage={ this.props.upload }
+						userId={this.props.user.id}
+					/>
 				</div>
 				<Footer />
 			</div>
@@ -63,10 +65,9 @@ export default connect(
 	mapStateToProps,
 	{
 		logout,
-		getUserInfo,
 		upload,
 		editUserInfo,
-		getNews,
-		getUserAlbums
+		editAlbum,
+		deleteAlbum
 	}
 )(Main);
