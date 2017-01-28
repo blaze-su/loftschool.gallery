@@ -23,7 +23,6 @@ class ImageUpload extends React.Component {
       if (e.target.files.length > 0) {
       
       console.log(targetFiles);
-      // targetFiles.map(file => console.log('hello'));
       let file = i;
       console.log(i);
 
@@ -43,7 +42,7 @@ class ImageUpload extends React.Component {
   render() {
     let {imagePreviewUrl} = this.state;
     let URLs = {imagePreviewUrl};
-    
+
     return (
       <div className={s.previewComponent}>
         {URLs.imagePreviewUrl.length > 0 ?  URLs.imagePreviewUrl.map(file => {return (
