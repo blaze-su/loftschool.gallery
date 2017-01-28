@@ -2,15 +2,15 @@
 import React from 'react';
 import s from './album.scss';
 import HeaderAlbum from '../../components/HeaderAlbum';
-import Photos from '../../components/Photos';
 import Footer from '../../components/Footer';
+import Photos from './../../components/PhotosJs/Photos.jsx';
 
 function Album() {
     return (
 		<div className={s.wrapper}>
 			<HeaderAlbum />
 			<div className={s.contentWrapper}>
-				<Photos />
+				<Photos/>
 			</div>
 			<Footer />
 		</div>

@@ -6,6 +6,7 @@ import photos_list from './photos_list';
 
 import Photo from './Photo/Photo';
 import Like from './../Like/Like';
+import AddPhoto from './Photo/Add/Add';
 
 import Icon from 'react-icon-svg-symbol';
 
@@ -134,14 +135,7 @@ class Photos extends React.Component {
         return (
 
           <div className={s.photos}>
-            <a href='#' className={s.buttonAdd}>
-                  <Icon
-                      fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                      symbolId="add"
-                      iconClassName={s.addIcon}
-                  />
-                  <span className={s.addText}>Добавить</span>
-              </a>
+            <AddPhoto name="Блабла"/>
               <div className={s.container}>
                   <ul className={s.list}>
                 {this.state.photos.map(photo => <Photo
