@@ -5,6 +5,7 @@ import s from './photos.scss';
 import photos_list from './photos_list';
 
 import Photo from './Photo/Photo';
+import NewInWorld from './../NewInWorld/NewInWorld';
 import Like from './../Like/Like';
 import AddPhoto from './Photo/Add/Add';
 
@@ -138,7 +139,7 @@ class Photos extends React.Component {
             <AddPhoto name="Блабла"/>
               <div className={s.container}>
                   <ul className={s.list}>
-                {this.state.photos.map(photo => <Photo
+                {this.props.type === 'album' ? this.state.photos.map(photo => <Photo
                     key={photo.id}
                     id={photo.id}
                     image={photo.image}
@@ -146,7 +147,15 @@ class Photos extends React.Component {
                     likes={photo.likes}
                     comments={photo.comments}
                     onFullScreenOpen={this.onFullScreenOpen}
-                />)}
+                />)
+                :
+                 this.state.photos.map(photo => <NewInWorld
+                    key={photo.id}
+                    image={photo.image}
+                    userImage={photo.author__avatar}
+
+                 />)
+                }
                 {this.state.fullscreen ? this.renderFullscreen() : ''}
               </ul>
           </div>
