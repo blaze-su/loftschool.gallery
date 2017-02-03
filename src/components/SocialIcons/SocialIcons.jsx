@@ -15,6 +15,11 @@ function SocialIcons() {
                             iconClassName={s.socialIcon}
                         /> 
                     </a>
+                    <form className={s.socialEdit}>
+                        <input className={s.socialInput} name="vkontakte"/>
+                        <button className={s.buttonSave} type="submit">Сохранить</button>
+                        <button className={s.buttonClear} type="reset">Отменить</button>
+                    </form>
                 </li>
                 <li className={s.socialItem}>
                     <a className={s.socialLink}>
@@ -24,6 +29,11 @@ function SocialIcons() {
                             iconClassName={s.socialIcon}
                         /> 
                     </a>
+                    <form className={s.socialEdit}>
+                        <input className={s.socialInput} name="facebook"/>
+                        <button className={s.buttonSave} type="submit">Сохранить</button>
+                        <button className={s.buttonClear} type="reset">Отменить</button>
+                    </form>
                 </li>
                 <li className={s.socialItem}>
                     <a className={s.socialLink}>
@@ -33,6 +43,11 @@ function SocialIcons() {
                             iconClassName={s.socialIcon}
                         /> 
                     </a>
+                    <form className={s.socialEdit}>
+                        <input className={s.socialInput} name="twitter"/>
+                        <button className={s.buttonSave} type="submit">Сохранить</button>
+                        <button className={s.buttonClear} type="reset">Отменить</button>
+                    </form>
                 </li>
                 <li className={s.socialItem}>
                     <a className={s.socialLink}>
@@ -42,6 +57,11 @@ function SocialIcons() {
                             iconClassName={s.socialIcon}
                         /> 
                     </a>
+                    <form className={s.socialEdit}>
+                        <input className={s.socialInput} name="google"/>
+                        <button className={s.buttonSave} type="submit">Сохранить</button>
+                        <button className={s.buttonClear} type="reset">Отменить</button>
+                    </form>
                 </li>
                 <li className={s.socialItem}>
                     <a className={s.socialLink}>
@@ -51,6 +71,11 @@ function SocialIcons() {
                             iconClassName={s.socialIcon}
                         /> 
                     </a>
+                    <form className={s.socialEdit}>
+                        <input className={s.socialInput} name="gmail"/>
+                        <button className={s.buttonSave} type="submit">Сохранить</button>
+                        <button className={s.buttonClear} type="reset">Отменить</button>
+                    </form>
                 </li>
             </ul>
         </div>

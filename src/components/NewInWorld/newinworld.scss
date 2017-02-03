@@ -8,6 +8,7 @@
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+	max-width: 380px;
 
 	&:nth-child(3n) {
 		margin-right: 0;

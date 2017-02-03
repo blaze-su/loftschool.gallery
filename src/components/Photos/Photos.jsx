@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from 'react-icon-svg-symbol';
+import Add from './../../components/PhotosJs/Photo/Add/Add';
 import s from './photos.scss';
 
 function Photos(props) {
@@ -7,14 +8,7 @@ function Photos(props) {
 
     return (
         <div className={s.photos}>
-        	<a href='#' className={s.buttonAdd}>
-                <Icon
-                    fileURL={process.env.PUBLIC_URL + '/images/icons/sprite.svg'}
-                    symbolId="add"
-                    iconClassName={s.addIcon}
-                />
-                <span className={s.addText}>Добавить</span>
-            </a>
+        	<Add />
             <div className={s.container}>
                 <ul className={s.list}>
                     

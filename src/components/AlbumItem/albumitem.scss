@@ -9,6 +9,7 @@
     flex-direction: column;
     margin: 10px 20px 10px 0;
     overflow: hidden;
+    max-width: 280px;
 
     &:nth-child(4n) {
     	margin-right: 0;

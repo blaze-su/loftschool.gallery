@@ -75,7 +75,7 @@
     top: 0;
     height: 19.2rem;
     width: 100%;
-    overflow: hidden;
+    //overflow: hidden;
 }
 
 .slideBlock__overlay, .slideBlock_top, .slideBlock_bottom {
@@ -133,7 +133,7 @@
     &_active {
         @extend .slideBlock_bottom;
         bottom: 0;
-        z-index: 999;
+        z-index: 2;
     }
 }
 
