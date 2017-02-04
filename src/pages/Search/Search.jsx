@@ -21,7 +21,7 @@ function Search() {
             <MainHeaderEdit/>
             <AlbumEdit/>
             <AddAlbum/>
-            <Photos/>
+            <Photos type="album"/>
         </section>
     );
 };

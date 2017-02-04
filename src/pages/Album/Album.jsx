@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import s from './album.scss';
 import HeaderAlbum from '../../components/HeaderAlbum';
-import Photos from '../../components/Photos';
+import Photos from '../../components/PhotosJs/Photos';
 import Footer from '../../components/Footer';
 import { getAlbumInfo, editAlbum } from '../../actions/albumActions';
 import { upload } from '../../actions/imagesActions';
@@ -52,7 +52,7 @@ class Album extends React.Component {
 					getAlbumInfo={this.getAlbumInfo}
 				/>
 				<div className={s.contentWrapper}>
-					<Photos images={images} />
+					<Photos type="album"/>
 				</div>
 				<Footer />
 			</div>
